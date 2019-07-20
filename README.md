@@ -88,7 +88,7 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
             * \<RouterLink to='QuestionPage'>
       * **\<QuestionPage />** _- conditionally render_
         * **\<Question />**
-          * **\<UserPost />**
+          * **\<UserPost />** _- conditionally render_
             * 'poster username, time posted'
             * 'Answer text and code'
             * \<button onClick='edit'> _- Available to post creator_
@@ -104,7 +104,7 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
             * \<input type='text' name='new-answer'>
             * \<button onClick='submit'>
         * **\<Answer />** - multiple listed
-          * **\<UserPost />**
+          * **\<UserPost />** _- conditionally render_
             * 'poster username, time posted'
             * 'Answer text and code'
             * \<button onClick='edit'> _- Available to post creator_
