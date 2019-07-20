@@ -46,8 +46,8 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
     * \<header>
       * \<nav>
         * \<RouterLink to='/'>
+        * **\<SearchBar />**
         * \<HashLink to='/topic-selectors>
-        * \<RouterLink to='/SearchPage>
         * \<modal name='Login-Register'>
           * **\<UserAccounts />**
             * **\<UserLogin />** _- conditionally render_
@@ -76,13 +76,14 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
             * \<input type='text' name='new-answer'>
             * \<button onClick='submit'>
       * **\<SearchPage />** _- conditionally render_
-        * **\<SearchBar />**
+        * 'search query'
         * **\<QuestionLister />**
           * \<button onClick='shows unsolved only'>
           * \<button onClick='shows solved only'>
           * **\<QuestionSelector />** _- multiple listed_
+            * 'question title'
             * 'poster username, time posted'
-            * 'sample question text'
+            * 'topic'
             * \<RouterLink to='QuestionPage'>
       * **\<TopicPage />** _- conditionally render_
         * 'topic title'
@@ -92,12 +93,13 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
           * **\<PostForm />**
             * \<input type='text' name='new-answer'>
             * \<button onClick='submit'>
-        * **\<QuestionList />**
+        * **\<QuestionLister />**
           * \<button onClick='shows unsolved only'>
           * \<button onClick='shows solved only'>
           * **\<QuestionSelector />** _- multiple listed_
+            * 'question title'
             * 'poster username, time posted'
-            * 'sample question text'
+            * 'topic'
             * \<RouterLink to='QuestionPage'>
       * **\<QuestionPage />** _- conditionally render_
         * **\<Question />**
