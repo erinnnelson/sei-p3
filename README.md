@@ -75,25 +75,15 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
           * **\<PostForm />**
             * \<input type='text' name='new-answer'>
             * \<button onClick='submit'>
-      * **\<SearchPage />** _- conditionally render_
-        * 'search query'
-        * **\<QuestionLister />**
-          * \<button onClick='shows unsolved only'>
-          * \<button onClick='shows solved only'>
-          * **\<QuestionSelector />** _- multiple listed_
-            * 'question title'
-            * 'poster username, time posted'
-            * 'topic'
-            * \<RouterLink to='QuestionPage'>
-      * **\<TopicPage />** _- conditionally render_
-        * 'topic title'
+      * **\<TopicOrSearchPage />** _- conditionally render_
+        * 'topic/search-query'
         * \<button onClick='create new question'>
         * **\<PostNewQuestion />** _- conditionally render_
           * \<input type='select' name='topic'>
           * **\<PostForm />**
             * \<input type='text' name='new-answer'>
             * \<button onClick='submit'>
-        * **\<QuestionLister />**
+        * **\<QuestionsList />**
           * \<button onClick='shows unsolved only'>
           * \<button onClick='shows solved only'>
           * **\<QuestionSelector />** _- multiple listed_
