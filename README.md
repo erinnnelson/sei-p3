@@ -78,7 +78,6 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
           * **\<PostEditForm />**
             * \<input type='text' name='title'>
             * \<input type='text' name='new-answer'>
-            * \<input type='code' name='code'>
         * **\<QuestionsList />**
           * \<button onClick='shows unsolved only'>
           * \<button onClick='shows solved only'>
@@ -103,7 +102,6 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
           * **\<PostEditForm />**
             * \<input type='text' name='title'>
             * \<input type='text' name='new-answer'>
-            * \<input type='code' name='code'>
             * \<button onClick='submit'>
         * **\<Answer />** - multiple listed
           * **\<UserPost />**
@@ -113,7 +111,6 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
             * **\<PostEditForm />** _- conditionally render_
               * \<input type='text' name='title'>
               * \<input type='text' name='new-answer'>
-              * \<input type='code' name='code'>
             * \<button onClick='delete'> _- Available to post creator_
           * \<button onClick='marks AnswerPost as correct'> _- Available to QuestionPost creator_
     * \<footer>
