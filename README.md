@@ -92,11 +92,11 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
             * 'poster username, time posted'
             * 'Answer text and code'
             * \<button onClick='edit'> _- Available to post creator_
-            * **\<PostEditForm />** _- conditionally render_
-              * \<input type='text' name='title'>
-              * \<input type='text' name='new-answer'>
-              * \<input type='code' name='code'>
             * \<button onClick='delete'> _- Available to post creator_
+          * **\<PostEditForm />** _- conditionally render_
+            * \<input type='text' name='title'>
+            * \<input type='text' name='new-answer'>
+            * \<input type='code' name='code'>
         * \<button onClick='create new answer'>
         * **\<PostNewAnswer />** _- conditionally render_
           * **\<PostEditForm />**
@@ -108,10 +108,10 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
             * 'poster username, time posted'
             * 'Answer text and code'
             * \<button onClick='edit'> _- Available to post creator_
-            * **\<PostEditForm />** _- conditionally render_
-              * \<input type='text' name='title'>
-              * \<input type='text' name='new-answer'>
             * \<button onClick='delete'> _- Available to post creator_
+          * **\<PostEditForm />** _- conditionally render_
+            * \<input type='text' name='title'>
+            * \<input type='text' name='new-answer'>
           * \<button onClick='marks AnswerPost as correct'> _- Available to QuestionPost creator_
     * \<footer>
       * 'year'
