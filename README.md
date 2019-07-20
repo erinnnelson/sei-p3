@@ -102,8 +102,8 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
           * **\<UserPost />**
             * 'poster username, time posted'
             * 'Answer text and code'
-            * <button onClick='edit'> _- Available to post creator_
-            * <button onClick='delete'> _- Available to post creator_
+            * \<button onClick='edit'> _- Available to post creator_
+            * \<button onClick='delete'> _- Available to post creator_
         * \<button onClick='create new answer'>
         * **\<PostNewAnswer />** _- conditionally render_
           * **\<PostForm />**
@@ -113,9 +113,9 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
           * **\<UserPost />**
             * 'poster username, time posted'
             * 'Answer text and code'
-            * <button onClick='edit'> _- Available to post creator_
-            * <button onClick='delete'> _- Available to post creator_
-          * <button onClick='marks AnswerPost as correct'> _- Available to QuestionPost creator_
+            * \<button onClick='edit'> _- Available to post creator_
+            * \<button onClick='delete'> _- Available to post creator_
+          * \<button onClick='marks AnswerPost as correct'> _- Available to QuestionPost creator_
     * \<footer>
       * 'year'
       * \<a href='github'>
