@@ -48,7 +48,7 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
         * \<RouterLink to='/'>
         * \<HashLink to='/topic-selectors>
         * \<RouterLink to='/SearchPage>
-        * \<modal name='Login-Register'
+        * \<modal name='Login-Register'>
           * **\<UserAccounts />**
             * **\<UserLogin />** _- conditionally render_
               * \<input type='text' name='username'/>
@@ -68,16 +68,17 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
           * 'title'
           * \<RouterLink to='TopicPage'>
         * \<button onClick='create new question'>
-        * **\<NewQuestionCreator />** _- conditionally render_
-          * \<input type='text' name='new-answer'>
+        * **\<PostNewQuestion />** _- conditionally render_
           * \<input type='select' name='topic'>
-          * \<button onClick='s
+          * **\<PostForm />**
+            * \<input type='text' name='new-answer'>
+            * \<button onClick='submit'>
       * **\<SearchPage />** _- conditionally render_
         * **\<SearchBar />**
-        * **\<QuestionList />**
+        * **\<QuestionLister />**
           * \<button onClick='shows unsolved only'>
           * \<button onClick='shows solved only'>
-          * **\<PostNewQuestion />** _- multiple listed_
+          * **\<QuestionSelector />** _- multiple listed_
             * 'poster username, time posted'
             * 'sample question text'
             * \<RouterLink to='QuestionPage'>
@@ -85,9 +86,10 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
         * 'topic title'
         * \<button onClick='create new question'>
         * **\<PostNewQuestion />** _- conditionally render_
-          * \<input type='text' name='new-answer'>
           * \<input type='select' name='topic'>
-          * \<button onClick='submit'>
+          * **\<PostForm />**
+            * \<input type='text' name='new-answer'>
+            * \<button onClick='submit'>
         * **\<QuestionList />**
           * \<button onClick='shows unsolved only'>
           * \<button onClick='shows solved only'>
@@ -97,22 +99,25 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
             * \<RouterLink to='QuestionPage'>
       * **\<QuestionPage />** _- conditionally render_
         * **\<Question />**
-          * 'poster username, time posted'
-          * 'Question text and code'
-          * <button onClick='edit'> - Available to QuestionPost creator
-          * <button onClick='delete'> - Available to QuestionPost creator
+          * **\<UserPost />**
+            * 'poster username, time posted'
+            * 'Answer text and code'
+            * <button onClick='edit'> _- Available to post creator_
+            * <button onClick='delete'> _- Available to post creator_
         * \<button onClick='create new answer'>
         * **\<PostNewAnswer />** _- conditionally render_
-          * \<input type='text' name='new-answer'>
-          * \<button onClick='submit'>
+          * **\<PostForm />**
+            * \<input type='text' name='new-answer'>
+            * \<button onClick='submit'>
         * **\<Answer />** - multiple listed
-          * 'poster username, time posted'
-          * 'Answer text and code'
-          * <button onClick='edit'> _- Available to AnswerPost creator_
-          * <button onClick='delete'> _- Available to AnswerPost creator_
+          * **\<UserPost />**
+            * 'poster username, time posted'
+            * 'Answer text and code'
+            * <button onClick='edit'> _- Available to post creator_
+            * <button onClick='delete'> _- Available to post creator_
           * <button onClick='marks AnswerPost as correct'> _- Available to QuestionPost creator_
     * \<footer>
-      * \<a href='api credit'>
+      * 'year'
       * \<a href='github'>
 
 ## Functional Components
