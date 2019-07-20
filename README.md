@@ -70,19 +70,15 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
           * 'title'
           * \<RouterLink to='TopicPage'>
         * \<button onClick='create new question'>
-        * **\<PostNewQuestion />** _- conditionally render_
-          * \<input type='select' name='topic'>
-          * **\<PostForm />**
-            * \<input type='text' name='new-answer'>
-            * \<button onClick='submit'>
       * **\<TopicOrSearchPage />** _- conditionally render_
         * 'topic/search-query'
         * \<button onClick='create new question'>
         * **\<PostNewQuestion />** _- conditionally render_
           * \<input type='select' name='topic'>
-          * **\<PostForm />**
+          * **\<PostEditForm />**
+            * \<input type='text' name='title'>
             * \<input type='text' name='new-answer'>
-            * \<button onClick='submit'>
+            * \<input type='code' name='code'>
         * **\<QuestionsList />**
           * \<button onClick='shows unsolved only'>
           * \<button onClick='shows solved only'>
@@ -97,17 +93,27 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
             * 'poster username, time posted'
             * 'Answer text and code'
             * \<button onClick='edit'> _- Available to post creator_
+            * **\<PostEditForm />** _- conditionally render_
+              * \<input type='text' name='title'>
+              * \<input type='text' name='new-answer'>
+              * \<input type='code' name='code'>
             * \<button onClick='delete'> _- Available to post creator_
         * \<button onClick='create new answer'>
         * **\<PostNewAnswer />** _- conditionally render_
-          * **\<PostForm />**
+          * **\<PostEditForm />**
+            * \<input type='text' name='title'>
             * \<input type='text' name='new-answer'>
+            * \<input type='code' name='code'>
             * \<button onClick='submit'>
         * **\<Answer />** - multiple listed
           * **\<UserPost />**
             * 'poster username, time posted'
             * 'Answer text and code'
             * \<button onClick='edit'> _- Available to post creator_
+            * **\<PostEditForm />** _- conditionally render_
+              * \<input type='text' name='title'>
+              * \<input type='text' name='new-answer'>
+              * \<input type='code' name='code'>
             * \<button onClick='delete'> _- Available to post creator_
           * \<button onClick='marks AnswerPost as correct'> _- Available to QuestionPost creator_
     * \<footer>
