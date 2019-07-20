@@ -53,13 +53,15 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
             * **\<UserLogin />** _- conditionally render_
               * \<input type='text' name='username'/>
               * \<input type='text' name='password'/>
+              * \<button onClick='login user'>
               * \<button onClick='show UserRegister'>
             * **\<UserRegister />** _- conditionally render_
               * \<input type='text' name='name'/>
               * \<input type='text' name='username'/>
               * \<input type='text' name='email'/>
               * \<input type='text' name='password'/>
-              * \<button onClick='whow UserLogin'>
+              * \<button onClick='register user'>
+              * \<button onClick='show UserLogin'>
     * \<main>
       * **\<Hero Page />** _- conditionally render_
         * \<img name='hero-image'>
