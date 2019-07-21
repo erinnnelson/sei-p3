@@ -1,5 +1,10 @@
 # Project Overview
+
+<img src="assets/wireframes/wf-dt1.png" alt="desktop hero page" width="500"/>
+
 This is the NYC General Assembly Software Engineerning Immersive, Panda Cohort's "Project 3," created by Francine Altman, Alex Curtin, Erinn Nelson and Ana Silvia.
+
+
 
 ## Project Description
 
@@ -45,10 +50,10 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 
 **Desktop**
 
-<img src="assets/wireframes/wf-dt1.png" alt="desktop hero page" width="808"/>
-<img src="assets/wireframes/wf2dt2.png" alt="desktop topic view" width="808"/>
-<img src="assets/wireframes/wf-dt1.png" alt="desktop question view" width="808"/>
-<img src="assets/wireframes/wf2dt2.png" alt="desktop post and edit view" width="808"/>
+<img src="assets/wireframes/wf-dt1.png" alt="desktop hero page" width="810"/>
+<img src="assets/wireframes/wf-dt2.png" alt="desktop topic view" width="810"/>
+<img src="assets/wireframes/wf-dt3.png" alt="desktop question view" width="810"/>
+<img src="assets/wireframes/wf-dt4.png" alt="desktop post and edit view" width="810"/>
 
 **Mobile**
 
