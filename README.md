@@ -48,35 +48,31 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 
 ## API Endpoint Documentation
 
-### GET
+| **GET** |  |
+| --- | --- |
+| _/users/verify_ | Primarily used to check if a user is already logged in when the page loads. Takes user’s token from local storage (if there is one) and uses it to verify who they are. |
+| _/questions/topic/:topic_ | For fetching all questions pertaining to a specific topic. ‘Topic’ is the only parameter in the request. |
+| _/questions/id/:id_ | For fetching one question and all of its associated answers. The request will include the question id. |
+| _/question/id/response_ |  |
 
-_/users/verify_ - Primarily used to check if a user is already logged in when the page loads. Takes user’s token from local storage (if there is one) and uses it to verify who they are.
-
-_/questions/topic/:topic_ - For fetching all questions pertaining to a specific topic. ‘Topic’ is the only parameter in the request.
-
-_/questions/id/:id_ - For fetching one question and all of its associated answers. The request will include the question id.
-
-### POST
-
-_/users_ - For adding a new user. Takes users name, email and password, encrypts the password and stores the info in the database.
-
-_/users/login_ - For logging in users. Will take their name and password, verify them and create a token to be stored in local storage.
-
-_/questions_ - For posting a new question to the database. Requests will include the user’s token, topic, title, question and user id.
-
-_/question/id/:id/answers_ - For posting a new answer to a specific question in the database. Takes the user’s token, question id, user id, and answer.
+| **POST** |  |
+| --- | --- |
+| _/users_ | For adding a new user. Takes users name, email and password, encrypts the password and stores the info in the database. |
+| _/users/login_ | For logging in users. Will take their name and password, verify them and create a token to be stored in local storage. |
+| _/questions_ | For posting a new question to the database. Requests will include the user’s token, topic, title, question and user id. |
+| _/question/id/:id/answers_ | For posting a new answer to a specific question in the database. Takes the user’s token, question id, user id, and answer. |
 
 ### PUT
 
-_/questions/:id_ - For updating a question. The request will include the user’s token, question id, topic, title, and question.
+| **PUT** |  |
+| --- | --- |
+| _/questions/:id_ | For updating a question. The request will include the user’s token, question id, topic, title, and question. |
+| _/answers/:id_ | For updating a question. The request will include the user’s token, answer id, and answer. |
 
-_/answers/:id_ - For updating a question. The request will include the user’s token, answer id, and answer.
-
-### DELETE
-
-_/questions/:id_ - For deleting a question. The request will include the user’s token and question id.
-
-_/answers/:id_ - For deleting an answer. The request will include the user’s token and answer id.
+| **DELETE** |  |
+| --- | --- |
+| _/questions/:id_ | For deleting a question. The request will include the user’s token and question id. |
+| _/answers/:id_ | For deleting an answer. The request will include the user’s token and answer id. |
 
 ## Wireframes
 
@@ -173,7 +169,9 @@ _/answers/:id_ - For deleting an answer. The request will include the user’s t
 * [Axios](https://www.npmjs.com/package/axios)
 * [Express](https://www.npmjs.com/package/express)
 * [PostgreSQL](https://www.npmjs.com/package/pg)
+* [Sequelize](https://www.npmjs.com/package/sequelize)
 * [CORS](https://www.npmjs.com/package/cors)
+* [Nodemon](https://www.npmjs.com/package/nodemon)
 * [Body Parser](https://www.npmjs.com/package/body-parser)
 * [Morgan](https://www.npmjs.com/package/morgan)
 * [JSON Web Tokon](https://www.npmjs.com/package/jsonwebtoken)
