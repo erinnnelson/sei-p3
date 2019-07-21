@@ -1,6 +1,6 @@
 # Project Overview
 
-<p align="center"><img src="assets/logos/team-taco-logo.png" alt="desktop hero page" width="500"/></p>
+<p align="center"><img src="assets/logos/team-taco-logo.png" alt="team taco logo" width="500"/></p>
 
 This is the NYC General Assembly Software Engineerning Immersive, Panda Cohort's "Project 3," created by Francine Altman, Alex Curtin, Erinn Nelson and Ana Silvia, collectively known as "Team Taco".
 
@@ -14,23 +14,21 @@ The purpose of this app is to allow users to ask and answer questions related to
 * Fork and clone this repo
 * cd into the app directory
 * run `npm i`
-* run `npm start` to start up the backend server
-* `cd client`
+* run `npm start` to initialize the backend server
+* cd into the client directory
 * run `npm start` and allow the client server to run on an available port
 
 _Site link not yet available_
 
 Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), and [PostgreSQL](https://www.postgresql.org/)
 
-### MVP/PostMVP
-
-**MVP**
+### MVP
 * Users can browse questions by topic
 * Users can register an account and log in
 * Registered users can post/delete/edit questions
 * Registered users can post/delete/edit responses to questions
 
-**PostMVP**
+### PostMVP
 * Users may mark questions they have posted as 'solved'
 * Posted questions can be viewed by 'all,' 'solved only,' or 'unsolved only.'
 * Users may search for questions using title or body keywords
@@ -43,6 +41,9 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 * Seemless UI
 
 ### ERD
+
+<img src="assets/erd/erd.jpg" alt="entity relationship diagram" width="400"/>
+<img src="assets/erd/user-flow.jpg" alt="user login flow" width="400"/> 
 
 ### API Endpoint Documentation
 
