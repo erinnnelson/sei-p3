@@ -176,6 +176,7 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 * [React Router](https://www.npmjs.com/package/react-router)
 * [React Router Hash Link](https://www.npmjs.com/package/react-router-hash-link)
 * [React Modal](https://www.npmjs.com/package/react-modal)
+* [React OnClick Outside](https://www.npmjs.com/package/react-onclickoutside/v/4.8.0)
 
 ## Issues and Resolutions
 
