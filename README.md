@@ -180,11 +180,8 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 
 ## Issues and Resolutions
 
-**Potential Problem:** Searching
-
-**Proposed Solution:** Use PostGreSQL select parameter 'LIKE'
-
-**Potential Problem:** Users forgetting passwords
-
-**Proposed Solution:** Create temporary token that allows user to create new password
+| **Potential Problem** | **Proposed Solution:** |
+| --- | --- |
+| Searching | Use PostGreSQL select parameter 'LIKE' |
+| Users forgetting passwords | Create temporary token that allows user to create new password |
 
