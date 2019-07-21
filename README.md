@@ -33,12 +33,17 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 **MVP**
 * Users can browse questions by topic
 * Users can register an account and log in
-* Registered users can post questions
-* Registered users can post responses to questions
+* Registered users can post/delete/edit questions
+* Registered users can post/delete/edit responses to questions
 
 **PostMVP**
 * Users may mark questions they have posted as 'solved'
 * Users may search for questions using title or body keywords
+* User can visit a profile page that displays their activity on the site
+
+## App Features
+* Users can register an account on the site
+* Users and topics are stored on a backend server/database
 
 ## React Component Hierarchy
 
