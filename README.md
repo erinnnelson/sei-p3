@@ -44,7 +44,7 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 ## ERD
 
 <img src="assets/erd/erd.jpg" alt="entity relationship diagram" width="400"/>
-<img src="assets/erd/sign-up-flow.png" alt="user login flow" width="400"/> 
+<img src="assets/erd/sign-up-flow.jpg" alt="user login flow" width="400"/> 
 
 ## API Endpoint Documentation
 
