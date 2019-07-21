@@ -22,32 +22,32 @@ _Site link not yet available_
 
 Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), and [PostgreSQL](https://www.postgresql.org/)
 
-### MVP
+## MVP
 * Users can browse questions by topic
 * Users can register an account and log in
 * Registered users can post/delete/edit questions
 * Registered users can post/delete/edit responses to questions
 
-### PostMVP
+## PostMVP
 * Users may mark questions they have posted as 'solved'
 * Posted questions can be viewed by 'all,' 'solved only,' or 'unsolved only.'
 * Users may search for questions using title or body keywords
 * User can visit a profile page that displays their activity on the site
 * Users can login using authentication from 3rd party services like facebook
 
-### App Features
+## App Features
 * Users can register an account on the site
 * Users and topics are stored on a backend server/database
 * Seemless UI
 
-### ERD
+## ERD
 
 <img src="assets/erd/erd.jpg" alt="entity relationship diagram" width="400"/>
 <img src="assets/erd/user-flow.jpg" alt="user login flow" width="400"/> 
 
-### API Endpoint Documentation
+## API Endpoint Documentation
 
-### Wireframes
+## Wireframes
 
 **Desktop**
 
@@ -60,7 +60,7 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 
 <img src="assets/wireframes/wf-mb1.png" alt="mobile hero page" width="200"/> <img src="assets/wireframes/wf-mb2.png" alt="mobile topic view" width="200"/> <img src="assets/wireframes/wf-mb3.png" alt="mobile question view" width="200"/> <img src="assets/wireframes/wf-mb4.png" alt="mobile post and edit view" width="200"/>
 
-### React Component Hierarchy
+## React Component Hierarchy
 
 * **\<App />**
     * \<header>
@@ -139,13 +139,25 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 
 ## Additional Libraries
 
-https://www.npmjs.com/package/react-modal
-
-https://www.npmjs.com/package/react-router-hash-link
-
-## Code Snippet
+* [Axios](https://www.npmjs.com/package/axios)
+* [Express](https://www.npmjs.com/package/express)
+* [PostgreSQL](https://www.npmjs.com/package/pg)
+* [CORS](https://www.npmjs.com/package/cors)
+* [Body Parser](https://www.npmjs.com/package/body-parser)
+* [Morgan](https://www.npmjs.com/package/morgan)
+* [JSON Web Tokon](https://www.npmjs.com/package/jsonwebtoken)
+* [BCrypt](https://www.npmjs.com/package/bcrypt)
+* [React Router](https://www.npmjs.com/package/react-router)
+* [React Router Hash Link](https://www.npmjs.com/package/react-router-hash-link)
+* [React Modal](https://www.npmjs.com/package/react-modal)
 
 ## Issues and Resolutions
-* Potential problem: Searching - using like perameters in PostGreSQL
-* User forgetting password - setting a temporary token to change the password
+
+**Potential Problem:** Searching
+
+**Proposed Solution:** Using PostGreSQL select perameter 'LIKE'
+
+**Potential Problem:** Users forgetting passwords
+
+**Proposed Solution:** Create a temporary token to that allows user to create a new password
 
