@@ -50,27 +50,26 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 
 | **GET** |  |
 | --- | --- |
-| _/users/verify_ | Primarily used to check if a user is already logged in when the page loads. Takes user’s token from local storage (if there is one) and uses it to verify who they are. |
-| _/questions/topic/:topic_ | For fetching all questions pertaining to a specific topic. ‘Topic’ is the only parameter in the request. |
-| _/questions/id/:id_ | For fetching one question and all of its associated answers. The request will include the question id. |
-| _/question/id/response_ |  |
+| _/users/verify_ | Primarily used to check if a user is already logged in when the page loads. Takes user’s token from local storage (if there is one) and uses it to verify who they are. Returns user’s data (name, email, id). |
+| _/questions/topic/:topic_ | For fetching all questions pertaining to a specific topic. ‘Topic’ is the only parameter in the request. Returns an array of questions, each with: id, topic, title, question, user id. |
+| _/questions/id/:id_ | For fetching one question and all of its associated answers. The request will include the question id. Returns a single question (id, topic, title, question, user id) with an array of answers (id, answer, question id, user id). |
 
 | **POST** |  |
 | --- | --- |
-| _/users_ | For adding a new user. Takes users name, email and password, encrypts the password and stores the info in the database. |
-| _/users/login_ | For logging in users. Will take their name and password, verify them and create a token to be stored in local storage. |
-| _/questions_ | For posting a new question to the database. Requests will include the user’s token, topic, title, question and user id. |
-| _/question/id/:id/answers_ | For posting a new answer to a specific question in the database. Takes the user’s token, question id, user id, and answer. |
+| _/users_ | For adding a new user. Takes users name, email and password, encrypts the password and stores the info in the database. Returns user’s data (name, email, id) minus password, and an auth token. |
+| _/users/login_ | For logging in users. Will take their name and password, verify them and create a token to be stored in local storage. Returns user’s data (name, email, id) minus password, and an auth token. |
+| _/questions_ | For posting a new question to the database. Requests will include the user’s token, topic, title, question and user id. Returns question data (id, topic, title, question and user id). |
+| _/question/id/:id/answers_ | For posting a new answer to a specific question in the database. Takes the user’s token, question id, user id, and answer. Returns answer data (id, answer, question id, user id). |
 
 | **PUT** |  |
 | --- | --- |
-| _/questions/:id_ | For updating a question. The request will include the user’s token, question id, topic, title, and question. |
-| _/answers/:id_ | For updating a question. The request will include the user’s token, answer id, and answer. |
+| _/questions/:id_ | For updating a question. The request will include the user’s token, question id, topic, title, and question. Returns question data (question id, topic, title, question). |
+| _/answers/:id_ | For updating a question. The request will include the user’s token, answer id, and answer. Returns answer data (answer id, answer, user id, question id). |
 
 | **DELETE** |  |
 | --- | --- |
-| _/questions/:id_ | For deleting a question. The request will include the user’s token and question id. |
-| _/answers/:id_ | For deleting an answer. The request will include the user’s token and answer id. |
+| _/questions/:id_ | For deleting a question. The request will include the user’s token and question id. Returns message “Question deleted.” |
+| _/answers/:id_ | For deleting an answer. The request will include the user’s token and answer id. Returns message “Answer deleted.” |
 
 ## Wireframes
 
@@ -184,4 +183,3 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 | --- | --- |
 | Searching | Use PostGreSQL select parameter 'LIKE' |
 | Users forgetting passwords | Create temporary token that allows user to create new password |
-
