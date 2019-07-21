@@ -49,55 +49,33 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 
 ### GET
 
-_/users/verify_
+_/users/verify_ - Primarily used to check if a user is already logged in when the page loads. Takes user’s token from local storage (if there is one) and uses it to verify who they are.
 
-Primarily used to check if a user is already logged in when the page loads. Takes user’s token from local storage (if there is one) and uses it to verify who they are.
+_/questions/topic/:topic_ - For fetching all questions pertaining to a specific topic. ‘Topic’ is the only parameter in the request.
 
-_/questions/topic/:topic_
-
-For fetching all questions pertaining to a specific topic. ‘Topic’ is the only parameter in the request.
-
-_/questions/id/:id_
-
-For fetching one question and all of its associated answers. The request will include the question id.
+_/questions/id/:id_ - For fetching one question and all of its associated answers. The request will include the question id.
 
 ### POST
 
-_/users_
+_/users_ - For adding a new user. Takes users name, email and password, encrypts the password and stores the info in the database.
 
-For adding a new user. Takes users name, email and password, encrypts the password and stores the info in the database.
+_/users/login_ - For logging in users. Will take their name and password, verify them and create a token to be stored in local storage.
 
-_/users/login_
+_/questions_ - For posting a new question to the database. Requests will include the user’s token, topic, title, question and user id.
 
-For logging in users. Will take their name and password, verify them and create a token to be stored in local storage.
-
-_/questions_
-
-For posting a new question to the database. Requests will include the user’s token, topic, title, question and user id.
-
-_/question/id/:id/answers_
-
-For posting a new answer to a specific question in the database. Takes the user’s token, question id, user id, and answer.
+_/question/id/:id/answers_ - For posting a new answer to a specific question in the database. Takes the user’s token, question id, user id, and answer.
 
 ### PUT
 
-_/questions/:id_
+_/questions/:id_ - For updating a question. The request will include the user’s token, question id, topic, title, and question.
 
-For updating a question. The request will include the user’s token, question id, topic, title, and question.
-
-_/answers/:id_
-
-For updating a question. The request will include the user’s token, answer id, and answer.
+_/answers/:id_ - For updating a question. The request will include the user’s token, answer id, and answer.
 
 ### DELETE
 
-_/questions/:id_
+_/questions/:id_ - For deleting a question. The request will include the user’s token and question id.
 
-For deleting a question. The request will include the user’s token and question id.
-
-_/answers/:id_
-
-For deleting an answer. The request will include the user’s token and answer id.
+_/answers/:id_ - For deleting an answer. The request will include the user’s token and answer id.
 
 ## Wireframes
 
