@@ -1,6 +1,6 @@
 # Project Overview
 
-<img src="assets/wireframes/wf-dt1.png" alt="desktop hero page" width="500"/>
+<img src="assets/logos/team-taco-logo.png" alt="desktop hero page" width="500"/>
 
 This is the NYC General Assembly Software Engineerning Immersive, Panda Cohort's "Project 3," created by Francine Altman, Alex Curtin, Erinn Nelson and Ana Silvia.
 
