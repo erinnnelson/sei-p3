@@ -33,6 +33,7 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 * Posted questions can be viewed by 'all,' 'solved only,' or 'unsolved only.'
 * Users may search for questions using title or body keywords
 * User can visit a profile page that displays their activity on the site
+* Users can add a username, edit and delete their account
 * Users can login using authentication from 3rd party services like facebook
 
 ### App Features
