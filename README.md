@@ -27,6 +27,7 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 
 **PostMVP**
 * Users may mark questions they have posted as 'solved'
+* Posted questions can be viewed by 'all,' 'solved only,' or 'unsolved only.'
 * Users may search for questions using title or body keywords
 * User can visit a profile page that displays their activity on the site
 * Users can login using authentication from 3rd party services like facebook
@@ -44,12 +45,14 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 
 **Desktop**
 
-<img src="wireframes/wf_dt1.png" alt="wireframe" width="606"/>
-<img src="wireframes/wf_dt2.png" alt="mobile wireframe" width="606"/>
+<img src="assets/wireframes/wf-dt1.png" alt="desktop hero page" width="808"/>
+<img src="assets/wireframes/wf2dt2.png" alt="desktop topic view" width="808"/>
+<img src="assets/wireframes/wf-dt1.png" alt="desktop question view" width="808"/>
+<img src="assets/wireframes/wf2dt2.png" alt="desktop post and edit view" width="808"/>
 
 **Mobile**
 
-<img src="wireframes/wf_mb1.png" alt="wireframe" width="200"/> <img src="wireframes/wf_mb2.png" alt="mobile wireframe" width="200"/> <img src="wireframes/wf_mb3.png" alt="mobile wireframe" width="200"/>
+<img src="assets/wireframes/wf-mb1.png" alt="mobile hero page" width="200"/> <img src="assets/wireframes/wf-mb2.png" alt="mobile topic view" width="200"/> <img src="assets/wireframes/wf-mb3.png" alt="mobile question view" width="200"/> <img src="assets/wireframes/wf-mb4.png" alt="mobile post and edit view" width="200"/>
 
 ### React Component Hierarchy
 
@@ -129,7 +132,9 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
       * \<a href='github'>
 
 ## Additional Libraries
+
 https://www.npmjs.com/package/react-modal
+
 https://www.npmjs.com/package/react-router-hash-link
 
 ## Code Snippet
