@@ -62,8 +62,6 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 | _/questions_ | For posting a new question to the database. Requests will include the user’s token, topic, title, question and user id. |
 | _/question/id/:id/answers_ | For posting a new answer to a specific question in the database. Takes the user’s token, question id, user id, and answer. |
 
-### PUT
-
 | **PUT** |  |
 | --- | --- |
 | _/questions/:id_ | For updating a question. The request will include the user’s token, question id, topic, title, and question. |
