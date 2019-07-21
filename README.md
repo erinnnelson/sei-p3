@@ -4,8 +4,6 @@
 
 This is the NYC General Assembly Software Engineerning Immersive, Panda Cohort's "Project 3," created by Francine Altman, Alex Curtin, Erinn Nelson and Ana Silvia, collectively known as "Team Taco".
 
-
-
 ## Project Description
 
 The purpose of this app is to allow users to ask and answer questions related to coding. Users may post questions and responses by topic once they have created an account. Additionally, questions can be marked as 'solved' by the original poster to help guide other users.
@@ -23,19 +21,21 @@ _Site link not yet available_
 Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), and [PostgreSQL](https://www.postgresql.org/)
 
 ## MVP
+
+### MVP
 * Users can browse questions by topic
 * Users can register an account and log in
 * Registered users can post/delete/edit questions
 * Registered users can post/delete/edit responses to questions
 
-## PostMVP
+### PostMVP
 * Users may mark questions they have posted as 'solved'
 * Posted questions can be viewed by 'all,' 'solved only,' or 'unsolved only.'
 * Users may search for questions using title or body keywords
 * User can visit a profile page that displays their activity on the site
 * Users can login using authentication from 3rd party services like facebook
 
-## App Features
+### App Features
 * Users can register an account on the site
 * Users and topics are stored on a backend server/database
 * Seemless UI
@@ -47,16 +47,57 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 
 ## API Endpoint Documentation
 
+### GET
+
+_/users/verify_
+* Primarily used to check if a user is already logged in when the page loads. Takes user’s token from local storage (if there is one) and uses it to verify who they are.
+
+_/questions/topic/:topic_
+* For fetching all questions pertaining to a specific topic. ‘Topic’ is the only parameter in the request.
+
+_/questions/id/:id_
+* For fetching one question and all of its associated answers. The request will include the question id.
+
+### POST
+
+_/users_
+* For adding a new user. Takes users name, email and password, encrypts the password and stores the info in the database.
+
+_/users/login_
+* For logging in users. Will take their name and password, verify them and create a token to be stored in local storage.
+
+_/questions_
+* For posting a new question to the database. Requests will include the user’s token, topic, title, question and user id.
+
+_/question/id/:id/answers_
+* For posting a new answer to a specific question in the database. Takes the user’s token, question id, user id, and answer.
+
+### PUT
+
+_/questions/:id_
+* For updating a question. The request will include the user’s token, question id, topic, title, and question.
+
+_/answers/:id_
+* For updating a question. The request will include the user’s token, answer id, and answer.
+
+### DELETE
+
+_/questions/:id_
+* For deleting a question. The request will include the user’s token and question id.
+
+_/answers/:id_
+* For deleting an answer. The request will include the user’s token and answer id.
+
 ## Wireframes
 
-**Desktop**
+### Desktop
 
 <img src="assets/wireframes/wf-dt1.png" alt="desktop hero page" width="810"/>
 <img src="assets/wireframes/wf-dt2.png" alt="desktop topic view" width="810"/>
 <img src="assets/wireframes/wf-dt3.png" alt="desktop question view" width="810"/>
 <img src="assets/wireframes/wf-dt4.png" alt="desktop post and edit view" width="810"/>
 
-**Mobile**
+### Mobile
 
 <img src="assets/wireframes/wf-mb1.png" alt="mobile hero page" width="200"/> <img src="assets/wireframes/wf-mb2.png" alt="mobile topic view" width="200"/> <img src="assets/wireframes/wf-mb3.png" alt="mobile question view" width="200"/> <img src="assets/wireframes/wf-mb4.png" alt="mobile post and edit view" width="200"/>
 
@@ -155,9 +196,9 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 
 **Potential Problem:** Searching
 
-**Proposed Solution:** Using PostGreSQL select perameter 'LIKE'
+**Proposed Solution:** Use PostGreSQL select parameter 'LIKE'
 
 **Potential Problem:** Users forgetting passwords
 
-**Proposed Solution:** Create a temporary token to that allows user to create a new password
+**Proposed Solution:** Create temporary token that allows user to create new password
 
