@@ -6,6 +6,10 @@ This is the NYC General Assembly Software Engineering Immersive, Panda Cohort's 
 
 ## Project Description
 
+### Project Name
+
+tackle;
+
 The purpose of this app is to allow users to ask and answer questions related to coding. Users may post questions and responses by topic once they have created an account. Additionally, questions can be marked as 'solved' by the original poster to help guide other users.
 
 ### Set Up
