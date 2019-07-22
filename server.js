@@ -5,8 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const { userRouter } = require('./routes/userRouter');
-// const { questionRouter } = require('./routes/questionRouter');
-const { answerRouter } = require('./routes/answerRouter');
+const { questionRouter } = require('./routes/questionRouter');
 
 const app = express();
 
@@ -16,8 +15,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.use('/users', userRouter);
-// app.use('/questions', questionRouter);
-app.use('/answers', answerRouter);
+app.use('/questions', questionRouter);
 
 app.use((e, req, res, next) => {
   if (e) {

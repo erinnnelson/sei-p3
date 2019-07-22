@@ -2,9 +2,9 @@ const { User, Question, Answer } = require('./models')
 
 const main = async () => {
 
-  await User.destroy({ where: {} });
-  await Question.destroy({ where: {} });
-  await Answer.destroy({ where: {} });
+  await User.destroy({ where: {}, });
+  await Question.destroy({ where: {}, });
+  await Answer.destroy({ where: {}, });
 
   const alex = await User.create({
     username: 'Alex',
@@ -120,7 +120,6 @@ const main = async () => {
   await answer5.setQuestion(question3);
   await answer6.setQuestion(question4);
   await answer7.setQuestion(question5);
-
-}
+};
 
 main();
