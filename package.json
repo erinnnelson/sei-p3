@@ -1,12 +1,31 @@
 {
   "name": "p3",
   "version": "1.0.0",
-  "description": "",
+  "description": "<p align=\"center\"><img src=\"assets/logos/team-taco-logo.png\" alt=\"team taco logo\" width=\"500\"/></p>",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erinnnelson/sei-p3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/erinnnelson/sei-p3/issues"
+  },
+  "homepage": "https://github.com/erinnnelson/sei-p3#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1",
+    "pg": "^7.11.0",
+    "sequelize": "^5.10.1"
+  }
 }
