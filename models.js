@@ -35,7 +35,7 @@ Answer.belongsTo(User);
 
 module.exports = {
   sequelize,
-  Answer,
+  User,
   Question,
-  User
+  Answer
 };
