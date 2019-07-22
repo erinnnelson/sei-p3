@@ -35,10 +35,11 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 * Registered users can post/delete/edit responses to questions
 
 ### PostMVP
+* Users can log out
 * Questions can be marked 'solved' by the original poster
 * Registered users may 'like' answers
 * Answers marked 'solved' are sorted to the top of responses
-* Answers are sorted by 'likes'
+* Answers are sorted by amount of 'likes'
 * Registered users can start comment threads on answers
 * Posted questions can be viewed by 'all,' 'solved only,' or 'unsolved only'
 * Users may search for questions using title or body keywords
