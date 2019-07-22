@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const { userRouter } = require('./routes/userRouter');
-const { questionRouter } = require('./routes/questionRouter');
+// const { questionRouter } = require('./routes/questionRouter');
 const { answerRouter } = require('./routes/answerRouter');
 
 const app = express();
@@ -15,8 +15,16 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/users', userRouter);
-app.get('/questions', questionRouter);
-app.get('/answers', answerRouter);
+app.use('/users', userRouter);
+// app.use('/questions', questionRouter);
+app.use('/answers', answerRouter);
 
-app.listen(PORT, () => console.log(`Your tacos are being served on ${PORT}`));
+app.use((e, req, res, next) => {
+  if (e) {
+    console.log(e);
+    res.status(500).send(e.message);
+  }
+  next();
+});
+
+app.listen(PORT, () => console.log(`Your tacos are being served on port ${PORT}`));
