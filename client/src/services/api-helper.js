@@ -15,6 +15,10 @@ const storeToken = (token) => {
   api.defaults.headers.common.authorization = `Bearer ${token}`;
 };
 
+export const removeToken = () => {
+  localStorage.removeItem('authToken');
+}
+
 export const verifyToken = async () => {
   const token = localStorage.getItem('authToken');
   if (token !== null) {
@@ -39,4 +43,11 @@ export const createUser = async (data) => {
   const res = await api.post('/users', data);
   storeToken(res.data.token);
   return res.data;
+}
+
+export const loginUser = async (data) => {
+  const res = await api.post('/users/login', data);
+  const { user, token } = res.data;
+  storeToken(token);
+  return user;
 }

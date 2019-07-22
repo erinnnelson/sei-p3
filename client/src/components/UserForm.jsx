@@ -3,7 +3,7 @@ import React from 'react';
 const UserForm = (props) => {
   return (
     <div>
-      <form >
+      <form onSubmit={props.handleLoginFormSubmit}>
         <input onChange={props.handleLoginFormChange} name="username" type="text" value={props.loginFormData.username} />
         <input onChange={props.handleLoginFormChange} name="password" type="password" value={props.loginFormData.password} />
         <input type="submit" value="login" />
