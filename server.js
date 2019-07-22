@@ -4,7 +4,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-// const { userRouter } = require('./routes/userRouter');
+const { userRouter } = require('./routes/userRouter');
 // const { questionRouter } = require('./routes/questionRouter');
 const { answerRouter } = require('./routes/answerRouter');
 
@@ -15,8 +15,16 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(cors());
 
-// app.get('/users', userRouter);
-// app.get('/questions', questionRouter);
+app.use('/users', userRouter);
+// app.use('/questions', questionRouter);
 app.use('/answers', answerRouter);
+
+app.use((e, req, res, next) => {
+  if (e) {
+    console.log(e);
+    res.status(500).send(e.message);
+  }
+  next();
+});
 
 app.listen(PORT, () => console.log(`Your tacos are being served on port ${PORT}`));
