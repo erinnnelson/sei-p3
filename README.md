@@ -2,7 +2,7 @@
 
 <p align="center"><img src="assets/logos/team-taco-logo.png" alt="team taco logo" width="500"/></p>
 
-This is the NYC General Assembly Software Engineerning Immersive, Panda Cohort's "Project 3," created by Francine Altman, Alex Curtin, Erinn Nelson and Ana Silvia, collectively known as "Team Taco".
+This is the NYC General Assembly Software Engineering Immersive, Panda Cohort's "Project 3," created by Francine Altman, Alex Curtin, Erinn Nelson and Ana Silvia, collectively known as "Team Taco".
 
 ## Project Description
 
@@ -29,12 +29,16 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 * Registered users can post/delete/edit responses to questions
 
 ### PostMVP
-* Users may mark questions they have posted as 'solved'
-* Posted questions can be viewed by 'all,' 'solved only,' or 'unsolved only.'
+* Questions can be marked 'solved' by the original poster
+* Registered users may 'like' answers
+* Answers marked 'solved' are sorted to the top of responses
+* Answers are sorted by 'likes'
+* Registered users can start comment threads on answers
+* Posted questions can be viewed by 'all,' 'solved only,' or 'unsolved only'
 * Users may search for questions using title or body keywords
-* User can visit a profile page that displays their activity on the site
-* Users can add a username, edit and delete their account
-* Users can login using authentication from 3rd party services like facebook
+* Registered users can visit a profile page displaying their activity on the site
+* Registered users can add a username, edit and delete their account
+* Users can log in using authentication from 3rd party services like facebook
 
 ### App Features
 * Users can register an account on the site
