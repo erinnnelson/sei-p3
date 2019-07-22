@@ -50,7 +50,7 @@ Created with [React](https://reactjs.org/), [Express](https://expressjs.com/), a
 ### App Features
 * Users can register an account on the site
 * Users and topics are stored on a backend server/database
-* Seemless UI
+* Seemless UI.
 
 ## ERD
 
