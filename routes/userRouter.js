@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { User } = require('../models');
+const { User, Question, Answer } = require('../models');
 const { genToken, restrict } = require('../auth');
 const bcrypt = require('bcrypt');
 
@@ -30,6 +30,18 @@ userRouter.route('/')
       const { password_digest, ...userData } = user.dataValues;
       const token = genToken(userData);
       res.json({ token, user: userData });
+    }
+    catch (e) {
+      next(e);
+    }
+  })
+
+userRouter.route('/:id')
+
+  .get(async (req, res, next) => {
+    try {
+      const user = await User.findByPk(req.params.id, { include: [Question, Answer] });
+      res.json(user);
     }
     catch (e) {
       next(e);
