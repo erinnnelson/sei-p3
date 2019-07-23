@@ -16,7 +16,7 @@ class QuestionPage extends React.Component {
   }
 
   componentDidMount = async () => {
-    const question = await fetchQuestion(this.props.topic, this.props.question_id)
+    const question = await fetchQuestion(this.props.topic, this.props.id)
     this.setState({
       question: question
     });
@@ -27,13 +27,13 @@ class QuestionPage extends React.Component {
       <div>
         <Question
           question={this.state.question}
-          topic={this.props.topic}
+          topic={this.state.question.topic}
         />
-        this.state.question.answers.map(answer => (
-        <Answer answer={answer} />
+        {this.state.question.answers.map(answer => (
+          <Answer answer={answer} />))}
       </div>
     )
-  };
+  }
 }
 
 export default QuestionPage;

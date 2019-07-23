@@ -1,23 +1,23 @@
 import React from 'react';
-import axios from ' axios';
+import QuestionForm from './QuestionForm';
 
 
 class Question extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      isEdit = false,
       formData: {
         topic: this.props.topic,
         title: this.props.question.title,
         question: this.props.question.question
-      }
+      },
+      isEdit: false
     }
   }
 
   handleUpdateClick = () => {
     this.setState({
-      isEdit = true
+      isEdit: true
     })
   }
 
@@ -27,7 +27,7 @@ class Question extends React.Component {
 
   render() {
     return (
-      (isEdit
+      (this.state.isEdit
         ?
         <QuestionForm
           formData={this.state.formData}

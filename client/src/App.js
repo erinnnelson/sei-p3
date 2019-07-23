@@ -6,6 +6,7 @@ import QuestionsViewer from './components/QuestionsViewer';
 import NavBar from './components/NavBar';
 import Main from './components/Main';
 import { Route } from 'react-router-dom';
+import QuestionPage from './components/Question';
 
 class App extends React.Component {
   constructor() {
@@ -112,7 +113,8 @@ class App extends React.Component {
             </div>
           </div>
           <Route exact path='/' component={Main} />
-          <Route exact path='/questions/:topic' component={(props) => <QuestionsViewer topic={props.match.params.topic} />} />
+          <Route exact path='/questions/:topics/' component={(props) => <QuestionsViewer topic={props.match.params.topic} />} />
+          <Route exact path='/questions/:topics/:id' component={(props) => <QuestionPage topic={props.match.params.topic} id={props.match.params.id} />} />
           <footer>
             <p>this is the footer</p>
           </footer>
