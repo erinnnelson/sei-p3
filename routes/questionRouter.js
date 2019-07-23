@@ -22,7 +22,7 @@ questionRouter.route('/:topic')
 
   .get(async (req, res, next) => {
     try {
-      const questions = await Question.findAll({ where: { topic: req.params.topic }, include: [Answer] })
+      const questions = await Question.findAll({ where: { topic: req.params.topic }, include: [User] })
       res.json(questions);
     }
     catch (e) {
@@ -53,7 +53,15 @@ questionRouter.route('/:topic/:question_id')
 
   .get(async (req, res, next) => {
     try {
-      const question = await Question.findByPk(req.params.question_id, { include: [Answer] })
+      const question = await Question.findByPk(req.params.question_id, {
+        include: [
+          { model: User },
+          {
+            model: Answer,
+            include: [User]
+          }
+        ]
+      })
       res.json(question);
     }
     catch (e) {
@@ -63,10 +71,10 @@ questionRouter.route('/:topic/:question_id')
 
   .put(async (req, res, next) => {
     try {
-      const updateQuestion = req.body
-      const question = await Question.update(updateQuestion, { where: { id: req.params.question_id } })
-      console.log(question.dataValues)
-      res.json(question);
+      await Question.update(req.body, { where: { id: req.params.question_id } })
+      const updatedQuestion = await Question.findByPk(req.params.question_id);
+      console.log(updateQuestion.dataValues)
+      res.json(updatedQuestion);
     }
     catch (e) {
       next(e);
@@ -120,10 +128,10 @@ questionRouter.route('/:topic/:question_id/answers/:id')
 
   .put(async (req, res, next) => {
     try {
-      const updateAnswer = req.body
-      const answer = await Answer.update(updateAnswer, { where: { id: req.params.id } })
-      console.log(answer.dataValues)
-      res.json(answer);
+      await Answer.update(req.body, { where: { id: req.params.id } })
+      const updatedAnswer = await Answer.findByPk(req.params.id);
+      console.log(updatedAnswer.dataValues)
+      res.json(updatedAnswer);
     }
     catch (e) {
       next(e);

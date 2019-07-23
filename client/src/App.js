@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import { verifyToken, createUser, loginUser, removeToken } from './services/user-api-helper';
 import UserForm from './components/UserForm';
+import QuestionsViewer from './components/QuestionsViewer';
 import NavBar from './components/NavBar';
-
-import UserCreds from './components/UserCreds';
+import Main from './components/Main';
 
 class App extends React.Component {
   constructor() {
@@ -64,7 +64,6 @@ class App extends React.Component {
     e.preventDefault();
     const newUser = this.state.registerFormData;
     const res = await createUser(newUser);
-    debugger;
     this.setState({
       user: res.user,
       registerFormData: {
@@ -90,20 +89,33 @@ class App extends React.Component {
           <NavBar />
           <UserCreds />
           <h1>Tackle;</h1>
-          {this.state.user &&
-            <div>
+          {this.state.user ?
+            (<div>
               <p>Hello {this.state.user.username}</p>
               <button onClick={this.handleLogOut}>Logout</button>
-            </div>}
-          <UserForm
-            loginFormData={this.state.loginFormData}
-            handleLoginFormChange={this.handleLoginFormChange}
-            handleLoginFormSubmit={this.handleLoginFormSubmit}
-            registerFormData={this.state.registerFormData}
-            handleRegisterFormChange={this.handleRegisterFormChange}
-            handleRegisterFormSubmit={this.handleRegisterFormSubmit}
-          />
+            </div>) :
+            (<UserForm
+              loginFormData={this.state.loginFormData}
+              handleLoginFormChange={this.handleLoginFormChange}
+              handleLoginFormSubmit={this.handleLoginFormSubmit}
+              registerFormData={this.state.registerFormData}
+              handleRegisterFormChange={this.handleRegisterFormChange}
+              handleRegisterFormSubmit={this.handleRegisterFormSubmit}
+            />)}
+          <NavBar />
         </header>
+        <>
+
+          <div className="main-section">
+            <div className="hero-img">
+              <img className="cover-img" src="https://images.unsplash.com/photo-1518107616985-bd48230d3b20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt="hero-img" />
+            </div>
+          </div>
+          <Main />
+          <footer>
+            <p>this is the footer</p>
+          </footer>
+        </>
       </div>
     );
   }
