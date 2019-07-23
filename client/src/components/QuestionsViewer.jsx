@@ -1,11 +1,13 @@
 import React from 'react';
-import { fetchQuestions } from 'axios';
+import axios from 'axios';
+import { fetchQuestions } from '../services/question-api-helper';
+import { Link } from 'react-router-dom';
 
 class QuestionsViewer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      topic: 'javascript',
+      topic: 'css',
       questions: [],
     }
   };
@@ -21,12 +23,16 @@ class QuestionsViewer extends React.Component {
   render() {
     return (
       <div>
+
         {this.state.questions.map(question => (
-          <div key={question.id}>
-            <p>{question.title}</p>
-            <p>{question.question}</p>
-            <p>from: {question.user.username}</p>
-          </div>
+          <Link to={`questions/${this.state.topic}/${question.id}`}>
+            <div key={question.id}>
+              <p>{question.title}</p>
+              <p>{question.question}</p>
+              <p>from: {question.user.username}</p>
+              <hr />
+            </div>
+          </Link>
         ))}
       </div>
     )

@@ -7,7 +7,6 @@ const api = axios.create({
 
 export const fetchQuestions = async (topic) => {
   const res = await api.get(`/questions/${topic}`);
-  debugger;
   return res.data;
 };
 
