@@ -86,6 +86,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
+          <NavBar />
+          <UserCreds />
           <h1>Tackle;</h1>
           {this.state.user ?
             (<div>
