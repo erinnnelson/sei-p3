@@ -3,6 +3,8 @@ import './App.css';
 import { verifyToken, createUser, loginUser, removeToken } from './services/user-api-helper';
 import UserForm from './components/UserForm';
 import QuestionsViewer from './components/QuestionsViewer';
+import NavBar from './components/NavBar';
+import Main from './components/Main';
 
 class App extends React.Component {
   constructor() {
@@ -85,12 +87,12 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <h1>Tackle;</h1>
-          {this.state.user ?
-            (<div>
-              <p>Hello {this.state.user.username}</p>
-              <button onClick={this.handleLogOut}>Logout</button>
-            </div>) :
-            (<UserForm
+      {this.state.user &&
+              <div>
+                <p>Hello {this.state.user.username}</p>
+                <button onClick={this.handleLogOut}>Logout</button>
+              </div>}
+            <UserForm
               loginFormData={this.state.loginFormData}
               handleLoginFormChange={this.handleLoginFormChange}
               handleLoginFormSubmit={this.handleLoginFormSubmit}
@@ -98,8 +100,25 @@ class App extends React.Component {
               handleRegisterFormChange={this.handleRegisterFormChange}
               handleRegisterFormSubmit={this.handleRegisterFormSubmit}
             />)}
+      <>
+        <div className="App">
+          <header className="App-header">
+            <NavBar />
+            
         </header>
       </div>
+          </header>
+          <div className="main-section">
+            <div className="hero-img">
+              <img className="cover-img" src="https://images.unsplash.com/photo-1518107616985-bd48230d3b20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt="hero-img" />
+            </div>
+          </div>
+          <Main />
+        </div>
+        <footer>
+          <p>this is the footer</p>
+        </footer>
+      </>
     );
   }
 }
