@@ -2,7 +2,7 @@ import React from 'react';
 import axios from ' axios';
 
 
-class QuestionPage extends React.Component {
+class Question extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -15,15 +15,35 @@ class QuestionPage extends React.Component {
     }
   }
 
+  handleUpdateClick = () => {
+    this.setState({
+      isEdit = true
+    })
+  }
+
+  handleDeleteClick = () => {
+
+  }
+
   render() {
     return (
-      (isEdit ? <QuestionForm formData={this.state.formData} /> : null)
-  
-      <div>
-        <h1>{this.state.formData.title}</h1>
-        <p>{this.props.question.user.username}</p>
-        <p>{this.state.formData.question}</p>
-      </div>
+      (isEdit
+        ?
+        <QuestionForm
+          formData={this.state.formData}
+          isEdit={this.state.isEdit}
+        />
+        :
+        <div>
+          <h1>{this.state.formData.title}</h1>
+          <p>{this.props.question.user.username}</p>
+          <p>{this.state.formData.question}</p>
+          <button>edit</button>
+          <button>delete</button>
+        </div>
+      )
     )
   };
 }
+
+export default Question;
