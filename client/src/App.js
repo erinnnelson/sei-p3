@@ -2,6 +2,9 @@ import React from 'react';
 import './App.css';
 import { verifyToken, createUser, loginUser, removeToken } from './services/user-api-helper';
 import UserForm from './components/UserForm';
+import NavBar from './components/NavBar';
+
+import UserCreds from './components/UserCreds';
 
 class App extends React.Component {
   constructor() {
@@ -84,6 +87,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
+          <NavBar />
+          <UserCreds />
           <h1>Tackle;</h1>
           {this.state.user &&
             <div>
