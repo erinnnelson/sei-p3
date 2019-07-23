@@ -62,7 +62,6 @@ class App extends React.Component {
     e.preventDefault();
     const newUser = this.state.registerFormData;
     const res = await createUser(newUser);
-    debugger;
     this.setState({
       user: res.user,
       registerFormData: {
@@ -86,20 +85,19 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <h1>Tackle;</h1>
-          {this.state.user &&
-            <div>
+          {this.state.user ?
+            (<div>
               <p>Hello {this.state.user.username}</p>
               <button onClick={this.handleLogOut}>Logout</button>
-            </div>}
-          <UserForm
-            loginFormData={this.state.loginFormData}
-            handleLoginFormChange={this.handleLoginFormChange}
-            handleLoginFormSubmit={this.handleLoginFormSubmit}
-            registerFormData={this.state.registerFormData}
-            handleRegisterFormChange={this.handleRegisterFormChange}
-            handleRegisterFormSubmit={this.handleRegisterFormSubmit}
-          />
-          <QuestionsViewer />
+            </div>) :
+            (<UserForm
+              loginFormData={this.state.loginFormData}
+              handleLoginFormChange={this.handleLoginFormChange}
+              handleLoginFormSubmit={this.handleLoginFormSubmit}
+              registerFormData={this.state.registerFormData}
+              handleRegisterFormChange={this.handleRegisterFormChange}
+              handleRegisterFormSubmit={this.handleRegisterFormSubmit}
+            />)}
         </header>
       </div>
     );
