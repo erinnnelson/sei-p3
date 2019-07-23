@@ -22,7 +22,7 @@ questionRouter.route('/:topic')
 
   .get(async (req, res, next) => {
     try {
-      const questions = await Question.findAll({ where: { topic: req.params.topic }, include: [Answer] })
+      const questions = await Question.findAll({ where: { topic: req.params.topic }, include: [User] })
       res.json(questions);
     }
     catch (e) {
@@ -53,7 +53,15 @@ questionRouter.route('/:topic/:question_id')
 
   .get(async (req, res, next) => {
     try {
-      const question = await Question.findByPk(req.params.question_id, { include: [Answer] })
+      const question = await Question.findByPk(req.params.question_id, {
+        include: [
+          { model: User },
+          {
+            model: Answer,
+            include: [User]
+          }
+        ]
+      })
       res.json(question);
     }
     catch (e) {

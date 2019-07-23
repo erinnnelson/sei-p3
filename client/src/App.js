@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { verifyToken, createUser, loginUser, removeToken } from './services/user-api-helper';
 import UserForm from './components/UserForm';
+import QuestionsViewer from './components/QuestionsViewer';
 
 class App extends React.Component {
   constructor() {
@@ -98,6 +99,7 @@ class App extends React.Component {
             handleRegisterFormChange={this.handleRegisterFormChange}
             handleRegisterFormSubmit={this.handleRegisterFormSubmit}
           />
+          <QuestionsViewer />
         </header>
       </div>
     );
