@@ -43,11 +43,16 @@ export const createUser = async (data) => {
   const res = await api.post('/users', data);
   storeToken(res.data.token);
   return res.data;
-}
+};
 
 export const loginUser = async (data) => {
   const res = await api.post('/users/login', data);
   const { user, token } = res.data;
   storeToken(token);
   return user;
-}
+};
+
+export const fetchUser = async (id) => {
+  const res = await api.get(`/users/${id}`);
+  return res.data;
+};
