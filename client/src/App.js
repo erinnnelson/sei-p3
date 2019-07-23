@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { verifyToken, createUser, loginUser, removeToken } from './services/user-api-helper';
 import UserForm from './components/UserForm';
+import QuestionsViewer from './components/QuestionsViewer';
 import NavBar from './components/NavBar';
 import Main from './components/Main';
 
@@ -63,7 +64,6 @@ class App extends React.Component {
     e.preventDefault();
     const newUser = this.state.registerFormData;
     const res = await createUser(newUser);
-    debugger;
     this.setState({
       user: res.user,
       registerFormData: {
@@ -84,11 +84,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
-        <div className="App">
-          <header className="App-header">
-            <NavBar />
-            {this.state.user &&
+      <div className="App">
+        <header className="App-header">
+          <h1>Tackle;</h1>
+      {this.state.user &&
               <div>
                 <p>Hello {this.state.user.username}</p>
                 <button onClick={this.handleLogOut}>Logout</button>
@@ -100,7 +99,14 @@ class App extends React.Component {
               registerFormData={this.state.registerFormData}
               handleRegisterFormChange={this.handleRegisterFormChange}
               handleRegisterFormSubmit={this.handleRegisterFormSubmit}
-            />
+            />)}
+      <>
+        <div className="App">
+          <header className="App-header">
+            <NavBar />
+            
+        </header>
+      </div>
           </header>
           <div className="main-section">
             <div className="hero-img">
