@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { verifyToken, createUser, loginUser, removeToken } from './services/api-helper';
+import { verifyToken, createUser, loginUser, removeToken } from './services/user-api-helper';
 import UserForm from './components/UserForm';
 
 class App extends React.Component {
