@@ -7,4 +7,32 @@ const addAnswer = async () => {
   })
   console.log(resp.data);
 }
-addAnswer();
+
+const updateQuestion = async () => {
+  const resp = await axios.put('http://localhost:3000/questions/css/1', {
+    // title: 'The limit does not exist!',
+    question: "Why is everything broken?"
+  })
+  console.log(resp.data);
+}
+
+const updateAnswer = async () => {
+  const resp = await axios.put('http://localhost:3000/questions/css/1/answers/1', {
+    answer: "You're afraid of the claw!"
+  })
+  console.log(resp.data);
+}
+
+const deleteQuestion = async () => {
+  const resp = await axios.delete('http://localhost:3000/questions/css/1');
+  console.log(resp.data);
+}
+
+const main = async () => {
+  // addAnswer();
+  // updateQuestion();
+  // updateAnswer();
+  // deleteQuestion();
+};
+
+main();
