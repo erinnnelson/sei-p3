@@ -88,7 +88,6 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <NavBar />
-          <UserCreds />
           <h1>Tackle;</h1>
           {this.state.user ?
             (<div>
@@ -113,7 +112,7 @@ class App extends React.Component {
             </div>
           </div>
           <Route exact path='/' component={Main} />
-          <Route exact path='/questions/javascript' component={QuestionsViewer} />
+          <Route exact path='/questions/:topic' component={(props) => <QuestionsViewer topic={props.match.params.topic} />} />
           <footer>
             <p>this is the footer</p>
           </footer>

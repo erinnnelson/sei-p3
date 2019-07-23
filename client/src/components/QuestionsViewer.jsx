@@ -8,19 +8,18 @@ class QuestionsViewer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      topic: 'javascript',
       questions: [],
       formVisible: false,
       formData: {
         title: '',
         question: '',
-        topic: 'css',
+        topic: this.props.topic,
       }
     }
   };
 
   async componentDidMount() {
-    const topic = this.state.topic;
+    const topic = this.props.topic;
     const questions = await fetchQuestions(topic);
     this.setState({
       questions: questions,
@@ -67,10 +66,10 @@ class QuestionsViewer extends React.Component {
   render() {
     return (
       <div>
-        <h2>{this.state.topic}</h2>
+        <h2>{this.props.topic}</h2>
         {this.state.formVisible ?
           <QuestionsForm
-            topic={this.state.topic}
+            topic={this.props.topic}
             cancel={this.cancel}
             formData={this.state.formData}
             handleChange={this.handleChange}
@@ -80,7 +79,7 @@ class QuestionsViewer extends React.Component {
         {this.state.questions.map(question => (
           <Link
             key={question.id}
-            to={`questions/${this.state.topic}/${question.id}`}>
+            to={`questions/${this.props.topic}/${question.id}`}>
             <div >
               <p>{question.title}</p>
               <p>{question.question}</p>
