@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class Main extends React.Component {
   render() {
@@ -6,7 +7,9 @@ export default class Main extends React.Component {
       <div Id="topic-section">
         <div className="topic-card">
           <div>
-            <img className="card-topic-img" src="https://b.kisscc0.com/20180815/zlq/kisscc0-computer-icons-logo-brand-javascript-angle-js-5b741783856f77.0690615715343348515466.png" alt="JavaScript"></img>
+            <Link to='/questions/javascript'>
+              <img className="card-topic-img" src="https://b.kisscc0.com/20180815/zlq/kisscc0-computer-icons-logo-brand-javascript-angle-js-5b741783856f77.0690615715343348515466.png" alt="JavaScript"></img>
+            </Link>
           </div>
           <h2>JavaScript</h2>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { fetchQuestions } from '../services/question-api-helper';
+import { fetchQuestions, createQuestion } from '../services/api-helper';
 import { Link } from 'react-router-dom';
 import QuestionsForm from './QuestionForm';
 
@@ -8,13 +8,13 @@ class QuestionsViewer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      topic: '',
+      topic: 'javascript',
       questions: [],
       formVisible: false,
       formData: {
         title: '',
         question: '',
-        topic: '',
+        topic: 'css',
       }
     }
   };
@@ -44,6 +44,14 @@ class QuestionsViewer extends React.Component {
     }));
   };
 
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await createQuestion(this.state.formData);
+    this.setState({
+      formVisible: false,
+    })
+  }
+
   cancel = (e) => {
     e.preventDefault();
     this.setState({
@@ -66,6 +74,7 @@ class QuestionsViewer extends React.Component {
             cancel={this.cancel}
             formData={this.state.formData}
             handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
           /> :
           <button onClick={this.showForm}>Tackle a Question</button>}
         {this.state.questions.map(question => (

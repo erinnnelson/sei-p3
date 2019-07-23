@@ -9,6 +9,7 @@ const genToken = (payload) => {
 
 const restrict = (req, res, next) => {
   try {
+    debugger;
     const token = req.headers.authorization.split(' ')[1];
     const user = jwt.verify(token, SECRET);
     res.locals.user = user;

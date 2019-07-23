@@ -30,7 +30,7 @@ questionRouter.route('/:topic')
     }
   })
 
-  .post(async (req, res, next) => {
+  .post(restrict, (async (req, res, next) => {
     try {
       const user = await User.findByPk(res.locals.user.id);
       // const user = await User.findByPk(1);
@@ -47,7 +47,7 @@ questionRouter.route('/:topic')
     catch (e) {
       next(e);
     }
-  })
+  }))
 
 questionRouter.route('/:topic/:question_id')
 

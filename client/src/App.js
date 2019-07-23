@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
-import { verifyToken, createUser, loginUser, removeToken } from './services/user-api-helper';
+import { verifyToken, createUser, loginUser, removeToken } from './services/api-helper';
 import UserForm from './components/UserForm';
 import QuestionsViewer from './components/QuestionsViewer';
 import NavBar from './components/NavBar';
 import Main from './components/Main';
+import { Route } from 'react-router-dom';
 
 class App extends React.Component {
   constructor() {
@@ -111,7 +112,8 @@ class App extends React.Component {
               <img className="cover-img" src="https://images.unsplash.com/photo-1518107616985-bd48230d3b20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt="hero-img" />
             </div>
           </div>
-          <Main />
+          <Route exact path='/' component={Main} />
+          <Route exact path='/questions/javascript' component={QuestionsViewer} />
           <footer>
             <p>this is the footer</p>
           </footer>
