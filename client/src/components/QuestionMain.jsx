@@ -42,9 +42,11 @@ class QuestionMain extends React.Component {
   }
 
   showAnswerForm = () => {
-    this.setState({
-      answerFormVisible: true,
-    })
+    this.props.user ?
+      this.setState({
+        answerFormVisible: true,
+      }) :
+      this.props.openLoginModal();
   }
 
   cancelAnswer = () => {
@@ -57,7 +59,6 @@ class QuestionMain extends React.Component {
   }
 
   componentDidMount = async () => {
-    debugger;
     const question = await fetchQuestion(this.props.topic, this.props.id)
     console.log(question);
     this.setState({

@@ -27,11 +27,12 @@ class TopicQuestions extends React.Component {
     });
   };
 
-  showForm = (e) => {
-    e.preventDefault();
-    this.setState({
-      questionFormVisible: true,
-    })
+  showForm = () => {
+    this.props.user ?
+      this.setState({
+        questionFormVisible: true,
+      }) :
+      this.props.openLoginModal();
   }
 
   handleQuestionChange = (e) => {
