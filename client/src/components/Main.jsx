@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default class Main extends React.Component {
   render() {
     return (
-      <div Id="topic-section">
+      <div id="topic-section">
         <div className="topic-card">
           <div>
             <Link to='/questions/topic/javascript'>
