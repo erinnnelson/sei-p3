@@ -1,26 +1,25 @@
 import React from 'react';
 import axios from 'axios';
-import { fetchQuestions } from '../services/question-api-helper';
+import { fetchQuestions, createQuestion } from '../services/api-helper';
 import { Link } from 'react-router-dom';
 import QuestionsForm from './QuestionForm';
 
-class QuestionsViewer extends React.Component {
+class TopicQuestions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      topic: '',
       questions: [],
       formVisible: false,
       formData: {
         title: '',
         question: '',
-        topic: '',
+        topic: this.props.topic,
       }
     }
   };
 
   async componentDidMount() {
-    const topic = this.state.topic;
+    const topic = this.props.topic;
     const questions = await fetchQuestions(topic);
     this.setState({
       questions: questions,
@@ -44,6 +43,14 @@ class QuestionsViewer extends React.Component {
     }));
   };
 
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await createQuestion(this.state.formData);
+    this.setState({
+      formVisible: false,
+    })
+  }
+
   cancel = (e) => {
     e.preventDefault();
     this.setState({
@@ -59,23 +66,24 @@ class QuestionsViewer extends React.Component {
   render() {
     return (
       <div>
-        <h2>{this.state.topic}</h2>
+        <h2>{this.props.topic}</h2>
         {this.state.formVisible ?
           <QuestionsForm
-            topic={this.state.topic}
+            topic={this.props.topic}
             cancel={this.cancel}
             formData={this.state.formData}
             handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
           /> :
           <button onClick={this.showForm}>Tackle a Question</button>}
         {this.state.questions.map(question => (
           <Link
             key={question.id}
-            to={`questions/${this.state.topic}/${question.id}`}>
+            to={`/questions/${this.props.topic}/${question.id}`}>
             <div >
               <p>{question.title}</p>
               <p>{question.question}</p>
-              <p>from: {question.user.username}</p>
+              <p>{question.user.username}</p>
               <hr />
             </div>
           </Link>
@@ -85,4 +93,4 @@ class QuestionsViewer extends React.Component {
   }
 }
 
-export default QuestionsViewer;
+export default TopicQuestions;
