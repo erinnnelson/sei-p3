@@ -6,7 +6,10 @@ const UserForm = (props) => {
       {props.isLogin ?
         <>
           <h3>Login</h3>
-          <form onSubmit={props.handleLoginFormSubmit}>
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            props.handleLoginFormSubmit(props.loginFormData);
+          }}>
             <input
               onChange={props.handleLoginFormChange}
               name="username"
@@ -28,7 +31,10 @@ const UserForm = (props) => {
         :
         <>
           <h3>Register</h3>
-          <form onSubmit={props.handleRegisterFormSubmit}>
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            props.handleRegisterFormSubmit(props.registerFormData);
+          }}>
             <input
               onChange={props.handleRegisterFormChange}
               name="username"

@@ -13,15 +13,6 @@ class App extends React.Component {
     super();
     this.state = {
       user: null,
-      registerFormData: {
-        username: '',
-        password: '',
-        email: ''
-      },
-      loginFormData: {
-        username: '',
-        password: ''
-      },
     }
   }
   async componentDidMount() {
@@ -33,39 +24,19 @@ class App extends React.Component {
     }
   }
 
-  handleLoginFormChange = (e) => {
-    const { name, value } = e.target;
-    this.setState(prevState => ({
-      loginFormData: {
-        ...prevState.loginFormData,
-        [name]: value,
-      }
-    }))
-  }
 
-  handleLoginFormSubmit = async (e) => {
-    e.preventDefault();
-    const user = this.state.loginFormData;
-    const res = await loginUser(user);
+
+  handleLoginFormSubmit = async (formData) => {
+    const res = await loginUser(formData);
     this.setState({
       user: res,
     });
   };
 
-  handleRegisterFormChange = (e) => {
-    const { name, value } = e.target;
-    this.setState(prevState => ({
-      registerFormData: {
-        ...prevState.registerFormData,
-        [name]: value,
-      }
-    }))
-  }
 
-  handleRegisterFormSubmit = async (e) => {
-    e.preventDefault();
-    const newUser = this.state.registerFormData;
-    const res = await createUser(newUser);
+
+  handleRegisterFormSubmit = async (formData) => {
+    const res = await createUser(formData);
     this.setState({
       user: res.user,
       registerFormData: {
@@ -77,7 +48,6 @@ class App extends React.Component {
   };
 
   handleLogOut = (e) => {
-    // e.preventDefault();
     removeToken();
     this.setState({
       user: null,
@@ -89,16 +59,12 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <NavBar
-            loginFormData={this.state.loginFormData}
-            handleLoginFormChange={this.handleLoginFormChange}
             handleLoginFormSubmit={this.handleLoginFormSubmit}
-            registerFormData={this.state.registerFormData}
-            handleRegisterFormChange={this.handleRegisterFormChange}
             handleRegisterFormSubmit={this.handleRegisterFormSubmit}
             user={this.state.user}
             handleLogOut={this.handleLogOut}
           />
-      <h1>Tackle;</h1>
+          <h1>Tackle;</h1>
         </header>
         <main>
 
@@ -108,8 +74,17 @@ class App extends React.Component {
             </div>
           </div>
           <Route exact path='/' component={Main} />
-          <Route exact path='/questions/:topic/' component={(props) => <TopicQuestions topic={props.match.params.topic} />} />
-          <Route exact path='/questions/:topic/:id' component={(props) => <QuestionMain topic={props.match.params.topic} id={props.match.params.id} />} />
+          <Route
+            exact path='/questions/:topic/'
+            component={(tackle) => <TopicQuestions
+              user={this.state.user}
+              topic={tackle.match.params.topic} />} />
+          <Route
+            exact path='/questions/:topic/:id'
+            component={(tackle) => <QuestionMain
+              user={this.state.user}
+              topic={tackle.match.params.topic}
+              id={tackle.match.params.id} />} />
 
           <footer>
             <p>this is the footer</p>

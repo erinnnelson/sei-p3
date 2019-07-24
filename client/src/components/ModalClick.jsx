@@ -8,7 +8,16 @@ class ModalClick extends React.Component {
     super(props);
     this.state = {
       loginModalIsOpen: false,
-      regModalIsOpen: false
+      regModalIsOpen: false,
+      registerFormData: {
+        username: '',
+        password: '',
+        email: ''
+      },
+      loginFormData: {
+        username: '',
+        password: ''
+      },
     };
   }
 
@@ -28,6 +37,25 @@ class ModalClick extends React.Component {
     this.setState({ regModalIsOpen: false });
   }
 
+  handleLoginFormChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      loginFormData: {
+        ...prevState.loginFormData,
+        [name]: value,
+      }
+    }))
+  }
+
+  handleRegisterFormChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      registerFormData: {
+        ...prevState.registerFormData,
+        [name]: value,
+      }
+    }))
+  }
 
   render() {
     return (
@@ -43,6 +71,8 @@ class ModalClick extends React.Component {
           <UserForm
             {...this.props}
             isLogin={true}
+            loginFormData={this.state.loginFormData}
+            handleLoginFormChange={this.handleLoginFormChange}
           />
         </Modal>
 
@@ -56,6 +86,8 @@ class ModalClick extends React.Component {
           <UserForm
             {...this.props}
             isLogin={false}
+            registerFormData={this.state.registerFormData}
+            handleRegisterFormChange={this.handleRegisterFormChange}
           />
         </Modal>
       </div>
