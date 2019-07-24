@@ -4,7 +4,7 @@ import { fetchQuestions, createQuestion } from '../services/api-helper';
 import { Link } from 'react-router-dom';
 import QuestionsForm from './QuestionForm';
 
-class QuestionsViewer extends React.Component {
+class TopicQuestions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -79,11 +79,11 @@ class QuestionsViewer extends React.Component {
         {this.state.questions.map(question => (
           <Link
             key={question.id}
-            to={`questions/${this.props.topic}/${question.id}`}>
+            to={`/questions/${this.props.topic}/${question.id}`}>
             <div >
               <p>{question.title}</p>
               <p>{question.question}</p>
-              <p>from: {question.user.username}</p>
+              <p>{question.user.username}</p>
               <hr />
             </div>
           </Link>
@@ -93,4 +93,4 @@ class QuestionsViewer extends React.Component {
   }
 }
 
-export default QuestionsViewer;
+export default TopicQuestions;

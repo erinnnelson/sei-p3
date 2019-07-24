@@ -16,6 +16,7 @@ class Answer extends React.Component {
 
   handleUpdateClick = () => {
     this.setState({
+
       isEdit: true
     })
   }

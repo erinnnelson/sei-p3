@@ -1,17 +1,14 @@
 import React from 'react';
-import { fetchQuestion } from './services/question-api-helper';
+import { fetchQuestion } from '../services/api-helper';
 import Question from './Question';
 import Answer from './Answer';
 
 
-class QuestionPage extends React.Component {
+class QuestionMain extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       question: null,
-      answerFormData: {
-        answer: '',
-      }
     }
   }
 
@@ -30,10 +27,14 @@ class QuestionPage extends React.Component {
           topic={this.state.question.topic}
         />
         {this.state.question.answers.map(answer => (
-          <Answer answer={answer} />))}
+          <div key={answer.id}>
+            <Answer answer={answer} />
+          </div>
+        ))}
+
       </div>
     )
   }
 }
 
-export default QuestionPage;
+export default QuestionMain;
