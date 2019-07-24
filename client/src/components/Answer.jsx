@@ -1,5 +1,5 @@
 import React from 'react';
-import { updateAnswer, deleteAnswer } from '../services/api-helper';
+import { updateAnswer } from '../services/api-helper';
 import AnswerForm from './AnswerForm';
 
 
@@ -20,14 +20,6 @@ class Answer extends React.Component {
       isEdit: true
     })
   }
-
-  handleDeleteClick = async (e) => {
-    e.preventDefault();
-    const topic = this.props.topic;
-    const questionId = this.props.questionId;
-    const answerId = this.props.answer.id;
-    await deleteAnswer(topic, questionId, answerId);
-  };
 
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -68,7 +60,7 @@ class Answer extends React.Component {
           {/* {(this.props.user.id === this.props.answer.user_id) && ( */}
           <div>
             <button onClick={this.handleUpdateClick}>edit</button>
-            <button onClick={this.handleDeleteClick}>delete</button>
+            <button onClick={() => this.props.handleDeleteClick(this.props.topic, this.props.questionId, this.props.answer.id)}>delete</button>
           </div>
 
 

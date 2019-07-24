@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import { fetchQuestions, createQuestion } from '../services/api-helper';
 import { Link } from 'react-router-dom';
 import QuestionForm from './QuestionForm';
@@ -24,7 +23,7 @@ class TopicQuestions extends React.Component {
     console.log(questions);
     this.setState({
       questions: questions,
-    });
+    })
   };
 
   showForm = () => {
@@ -42,20 +41,21 @@ class TopicQuestions extends React.Component {
         ...prevState.questionFormData,
         [name]: value,
       }
-    }));
+    }))
   };
 
   handleQuestionSubmit = async (e) => {
     e.preventDefault();
-    const res = await createQuestion(this.state.questionFormData);
-    this.setState({
+    const newQuestion = await createQuestion(this.state.questionFormData);
+    this.setState(prevState => ({
+      questions: [...prevState.questions, newQuestion],
       questionFormVisible: false,
       questionFormData: {
         title: '',
         question: '',
         topic: '',
       }
-    })
+    }))
   }
 
   cancelQuestion = (e) => {
@@ -86,7 +86,7 @@ class TopicQuestions extends React.Component {
           :
           <button onClick={this.showForm}>Tackle a Question</button>
         }
-        {this.state.questions.map(question => (
+        {this.state.questions.slice(0).reverse().map(question => (
           <Link
             key={question.id}
             to={`/questions/${this.props.topic}/${question.id}`}>
@@ -100,7 +100,7 @@ class TopicQuestions extends React.Component {
         ))}
       </div>
     )
-  }
+  };
 }
 
 export default TopicQuestions;

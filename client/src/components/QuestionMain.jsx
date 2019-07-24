@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchQuestion, createAnswer } from '../services/api-helper';
+import { fetchQuestion, createAnswer, deleteAnswer } from '../services/api-helper';
 import Question from './Question';
 import AnswerForm from './AnswerForm';
 import Answer from './Answer';
@@ -18,6 +18,13 @@ class QuestionMain extends React.Component {
     }
   }
 
+  handleDeleteAnswer = async (topic, questionId, answerId) => {
+    await deleteAnswer(topic, questionId, answerId);
+    this.setState(prevState => ({
+      answers: prevState.answers.filter(answer => (answer.id !== answerId))
+    }))
+  }
+
   handleAnswerChange = (e) => {
     const { name, value } = e.target;
     this.setState(prevState => ({
@@ -31,7 +38,6 @@ class QuestionMain extends React.Component {
   handleAnswerSubmit = async (e) => {
     e.preventDefault();
     const newAnswer = await createAnswer(this.state.question.topic, this.state.question.id, this.state.answerFormData);
-    console.log(newAnswer);
     this.setState(prevState => ({
       answers: [...prevState.answers, newAnswer],
       answerFormVisible: false,
@@ -55,7 +61,7 @@ class QuestionMain extends React.Component {
       formData: {
         answer: ''
       }
-    })
+    });
   }
 
   componentDidMount = async () => {
@@ -89,14 +95,17 @@ class QuestionMain extends React.Component {
             }
             {this.state.answers.slice(0).reverse().map(answer => (
               <div key={answer.id}>
-                <Answer answer={answer} />
+                <Answer
+                  answer={answer}
+                  handleDeleteClick={this.handleDeleteAnswer}
+                />
               </div>
             ))}
           </div>)
         }
       </div>
     )
-  }
+  };
 }
 
 export default QuestionMain;
