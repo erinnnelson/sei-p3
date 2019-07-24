@@ -17,21 +17,25 @@ class QuestionMain extends React.Component {
     this.setState({
       question: question
     });
+    console.log(question);
   }
 
   render() {
     return (
       <div>
-        <Question
-          question={this.state.question}
-          topic={this.state.question.topic}
-        />
-        {this.state.question.answers.map(answer => (
-          <div key={answer.id}>
-            <Answer answer={answer} />
-          </div>
-        ))}
-
+        {this.state.question &&
+          (<div>
+            <Question
+              question={this.state.question}
+              topic={this.state.question.topic}
+            />
+            {this.state.question.answers.map(answer => (
+              <div key={answer.id}>
+                <Answer answer={answer} />
+              </div>
+            ))}
+          </div>)
+        }
       </div>
     )
   }
