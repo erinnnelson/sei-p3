@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import { fetchQuestions, createQuestion } from '../services/api-helper';
 import { Link } from 'react-router-dom';
 import QuestionForm from './QuestionForm';

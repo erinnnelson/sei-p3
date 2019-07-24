@@ -1,8 +1,6 @@
 import React from 'react';
 import QuestionForm from './QuestionForm';
-import { updateQuestion } from '../services/api-helper';
-import TopicQuestions from './TopicQuestions';
-import { deleteQuestion } from '../services/api-helper';
+import { updateQuestion, deleteQuestion } from '../services/api-helper';
 import { withRouter } from 'react-router-dom'
 
 
@@ -70,7 +68,7 @@ class Question extends React.Component {
           <p>{this.props.question.user.username}</p>
           <p>{this.state.formData.question}</p>
           <button onClick={this.handleUpdateClick}>edit</button>
-          <button onClick={this.handleDeleteClick}>delete Question</button>
+          <button onClick={this.handleDeleteClick}>delete</button>
         </div>
       )
     )

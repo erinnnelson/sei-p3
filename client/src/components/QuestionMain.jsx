@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchQuestion, createAnswer } from '../services/api-helper';
+import { fetchQuestion, createAnswer, deleteAnswer } from '../services/api-helper';
 import Question from './Question';
 import AnswerForm from './AnswerForm';
 import Answer from './Answer';
@@ -16,6 +16,13 @@ class QuestionMain extends React.Component {
         answer: ''
       }
     }
+  }
+
+  handleDeleteAnswer = async (topic, questionId, answerId) => {
+    await deleteAnswer(topic, questionId, answerId);
+    this.setState(prevState => ({
+      answers: prevState.answers.filter(answer => (answer.id !== answerId))
+    }))
   }
 
   handleAnswerChange = (e) => {
@@ -86,7 +93,10 @@ class QuestionMain extends React.Component {
             }
             {this.state.answers.slice(0).reverse().map(answer => (
               <div key={answer.id}>
-                <Answer answer={answer} />
+                <Answer
+                  answer={answer}
+                  handleDeleteClick={this.handleDeleteAnswer}
+                />
               </div>
             ))}
           </div>)
