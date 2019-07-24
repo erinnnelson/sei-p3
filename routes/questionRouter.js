@@ -117,7 +117,9 @@ questionRouter.route('/:topic/:question_id/answers')
       const ansQuest = await newAnswer.setQuestion(question);
       const ansUser = await newAnswer.setUser(user);
       console.log(ansUser.dataValues, ansQuest.dataValues);
-      res.json(newAnswer);
+      const newAnswerRes = await Answer.findByPk(newAnswer.dataValues.id, { include: [User] });
+      console.log(newAnswerRes.dataValues);
+      res.json(newAnswerRes);
     }
     catch (e) {
       next(e);

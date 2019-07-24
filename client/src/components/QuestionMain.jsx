@@ -10,6 +10,7 @@ class QuestionMain extends React.Component {
     super(props)
     this.state = {
       question: null,
+      answers: [],
       answerFormVisible: false,
       answerFormData: {
         answer: ''
@@ -29,13 +30,15 @@ class QuestionMain extends React.Component {
 
   handleAnswerSubmit = async (e) => {
     e.preventDefault();
-    await createAnswer(this.state.question.topic, this.state.question.id, this.state.answerFormData);
-    this.setState({
+    const newAnswer = await createAnswer(this.state.question.topic, this.state.question.id, this.state.answerFormData);
+    console.log(newAnswer);
+    this.setState(prevState => ({
+      answers: [...prevState.answers, newAnswer],
       answerFormVisible: false,
       answerFormData: {
         answer: ''
       }
-    })
+    }))
   }
 
   showAnswerForm = () => {
@@ -56,7 +59,8 @@ class QuestionMain extends React.Component {
   componentDidMount = async () => {
     const question = await fetchQuestion(this.props.topic, this.props.id)
     this.setState({
-      question: question
+      question: question,
+      answers: question.answers
     });
     console.log(question);
   }
@@ -81,7 +85,7 @@ class QuestionMain extends React.Component {
               :
               <button onClick={this.showAnswerForm}>Tackle an Answer</button>
             }
-            {this.state.question.answers.slice(0).reverse().map(answer => (
+            {this.state.answers.slice(0).reverse().map(answer => (
               <div key={answer.id}>
                 <Answer answer={answer} />
               </div>
