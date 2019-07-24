@@ -2,15 +2,15 @@ import React from 'react';
 import axios from 'axios';
 import { fetchQuestions, createQuestion } from '../services/api-helper';
 import { Link } from 'react-router-dom';
-import QuestionsForm from './QuestionForm';
+import QuestionForm from './QuestionForm';
 
 class TopicQuestions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       questions: [],
-      formVisible: false,
-      formData: {
+      questionFormVisible: false,
+      questionFormData: {
         title: '',
         question: '',
         topic: this.props.topic,
@@ -30,33 +30,38 @@ class TopicQuestions extends React.Component {
   showForm = (e) => {
     e.preventDefault();
     this.setState({
-      formVisible: true,
+      questionFormVisible: true,
     })
   }
 
-  handleChange = (e) => {
+  handleQuestionChange = (e) => {
     const { name, value } = e.target;
     this.setState(prevState => ({
-      formData: {
-        ...prevState.formData,
+      questionFormData: {
+        ...prevState.questionFormData,
         [name]: value,
       }
     }));
   };
 
-  handleSubmit = async (e) => {
+  handleQuestionSubmit = async (e) => {
     e.preventDefault();
-    const res = await createQuestion(this.state.formData);
+    const res = await createQuestion(this.state.questionFormData);
     this.setState({
-      formVisible: false,
+      questionFormVisible: false,
+      questionFormData: {
+        title: '',
+        question: '',
+        topic: '',
+      }
     })
   }
 
-  cancel = (e) => {
+  cancelQuestion = (e) => {
     e.preventDefault();
     this.setState({
-      formVisible: false,
-      formData: {
+      questionFormVisible: false,
+      questionFormData: {
         title: '',
         question: '',
         topic: '',
@@ -68,15 +73,18 @@ class TopicQuestions extends React.Component {
     return (
       <div>
         <h2>{this.props.topic}</h2>
-        {this.state.formVisible ?
-          <QuestionsForm
+        {this.state.questionFormVisible
+          ?
+          <QuestionForm
             topic={this.props.topic}
-            cancel={this.cancel}
-            formData={this.state.formData}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-          /> :
-          <button onClick={this.showForm}>Tackle a Question</button>}
+            cancel={this.cancelQuestion}
+            formData={this.state.questionFormData}
+            handleChange={this.handleQuestionChange}
+            handleSubmit={this.handleQuestionSubmit}
+          />
+          :
+          <button onClick={this.showForm}>Tackle a Question</button>
+        }
         {this.state.questions.map(question => (
           <Link
             key={question.id}
