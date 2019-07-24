@@ -77,7 +77,7 @@ class App extends React.Component {
   };
 
   handleLogOut = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     removeToken();
     this.setState({
       user: null,
@@ -88,22 +88,17 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <NavBar />
-          <h1>Tackle;</h1>
-          {this.state.user ?
-            (<div>
-              <p>Hello {this.state.user.username}</p>
-              <button onClick={this.handleLogOut}>Logout</button>
-            </div>) :
-            (<UserForm
-              loginFormData={this.state.loginFormData}
-              handleLoginFormChange={this.handleLoginFormChange}
-              handleLoginFormSubmit={this.handleLoginFormSubmit}
-              registerFormData={this.state.registerFormData}
-              handleRegisterFormChange={this.handleRegisterFormChange}
-              handleRegisterFormSubmit={this.handleRegisterFormSubmit}
-            />)}
-          <NavBar />
+          <NavBar
+            loginFormData={this.state.loginFormData}
+            handleLoginFormChange={this.handleLoginFormChange}
+            handleLoginFormSubmit={this.handleLoginFormSubmit}
+            registerFormData={this.state.registerFormData}
+            handleRegisterFormChange={this.handleRegisterFormChange}
+            handleRegisterFormSubmit={this.handleRegisterFormSubmit}
+            user={this.state.user}
+            handleLogOut={this.handleLogOut}
+          />
+      <h1>Tackle;</h1>
         </header>
         <main>
 
