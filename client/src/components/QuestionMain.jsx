@@ -42,9 +42,11 @@ class QuestionMain extends React.Component {
   }
 
   showAnswerForm = () => {
-    this.setState({
-      answerFormVisible: true,
-    })
+    this.props.user ?
+      this.setState({
+        answerFormVisible: true,
+      }) :
+      this.props.openLoginModal();
   }
 
   cancelAnswer = () => {

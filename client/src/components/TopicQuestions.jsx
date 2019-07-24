@@ -27,8 +27,7 @@ class TopicQuestions extends React.Component {
     });
   };
 
-  showForm = (e) => {
-    e.preventDefault();
+  showForm = () => {
     this.props.user ?
       this.setState({
         questionFormVisible: true,
