@@ -13,8 +13,27 @@ class App extends React.Component {
     super();
     this.state = {
       user: null,
+      loginModalIsOpen: false,
+      regModalIsOpen: false,
     }
   }
+
+  openLoginModal = () => {
+    this.setState({ loginModalIsOpen: true });
+  }
+
+  openRegModal = () => {
+    this.setState({ regModalIsOpen: true });
+  }
+
+  closeLoginModal = () => {
+    this.setState({ loginModalIsOpen: false });
+  }
+
+  closeRegModal = () => {
+    this.setState({ regModalIsOpen: false });
+  }
+
   async componentDidMount() {
     const user = await verifyToken();
     if (user) {
@@ -63,6 +82,12 @@ class App extends React.Component {
             handleRegisterFormSubmit={this.handleRegisterFormSubmit}
             user={this.state.user}
             handleLogOut={this.handleLogOut}
+            loginModalIsOpen={this.state.loginModalIsOpen}
+            regModalIsOpen={this.state.regModalIsOpen}
+            openLoginModal={this.openLoginModal}
+            openRegModal={this.openRegModal}
+            closeLoginModal={this.closeLoginModal}
+            closeRegModal={this.closeRegModal}
           />
           <h1>Tackle;</h1>
         </header>
@@ -78,13 +103,17 @@ class App extends React.Component {
             exact path='/questions/:topic/'
             component={(tackle) => <TopicQuestions
               user={this.state.user}
-              topic={tackle.match.params.topic} />} />
+              topic={tackle.match.params.topic}
+              openLoginModal={this.openLoginModal}
+            />} />
           <Route
             exact path='/questions/:topic/:id'
             component={(tackle) => <QuestionMain
               user={this.state.user}
               topic={tackle.match.params.topic}
-              id={tackle.match.params.id} />} />
+              id={tackle.match.params.id}
+              openLoginModal={this.openLoginModal}
+            />} />
 
           <footer>
             <p>this is the footer</p>
