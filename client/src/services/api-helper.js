@@ -90,13 +90,17 @@ export const deleteQuestion = async (topic, id) => {
   return res.data;
 };
 
+
+//////////////////////////////
+/// ANSWER API CALLS/////////
+/////////////////////////////
 export const fetchAnswers = async (topic, id) => {
   const res = await api.get(`/questions/${topic}/${id}/answers`);
   return res.data;
 };
 
-export const createAnswer = async (topic, id) => {
-  const res = await api.post(`/questions/${topic}/${id}/answers`);
+export const createAnswer = async (topic, id, data) => {
+  const res = await api.post(`/questions/${topic}/${id}/answers`, data);
   return res.data;
 };
 

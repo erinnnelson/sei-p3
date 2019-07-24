@@ -1,7 +1,6 @@
 import React from 'react';
-import axios from ' axios';
 import { updateAnswer, deleteAnswer } from '../services/api-helper';
-
+import AnswerForm from './AnswerForm';
 
 class Answer extends React.Component {
   constructor(props) {
@@ -65,12 +64,12 @@ class Answer extends React.Component {
         <div>
           <p>{this.props.answer.user.username}</p>
           <p>{this.state.formData.answer}</p>
-          {(this.props.user.id === this.props.answer.user_id) && (
-            <div>
-              <button onClick={this.handleUpdateClick}>edit</button>
-              <button onClick={this.handleDeleteClick}>delete</button>
-            </div>)
-          }
+          {/* {(this.props.user.id === this.props.answer.user_id) && ( */}
+          <div>
+            <button onClick={this.handleUpdateClick}>edit</button>
+            <button onClick={this.handleDeleteClick}>delete</button>
+          </div>
+
         </div>
       )
     )
