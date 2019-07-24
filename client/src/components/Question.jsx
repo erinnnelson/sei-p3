@@ -3,6 +3,7 @@ import QuestionForm from './QuestionForm';
 import { updateQuestion } from '../services/api-helper';
 import TopicQuestions from './TopicQuestions';
 import { deleteQuestion } from '../services/api-helper';
+import { withRouter } from 'react-router-dom'
 
 
 class Question extends React.Component {
@@ -28,6 +29,7 @@ class Question extends React.Component {
     const topic = this.props.topic;
     const questionId = this.props.question.id;
     await deleteQuestion(topic, questionId);
+    this.props.history.push(`/questions/${topic}`)
   };
 
 
@@ -75,7 +77,7 @@ class Question extends React.Component {
   };
 }
 
-export default Question;
+export default withRouter(Question);
 
 
 {/* <button onClick={() => this.delete(kitten.id)}>Delete kitten</button> */ }

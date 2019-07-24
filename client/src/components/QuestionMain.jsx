@@ -13,6 +13,7 @@ class QuestionMain extends React.Component {
   }
 
   componentDidMount = async () => {
+    debugger;
     const question = await fetchQuestion(this.props.topic, this.props.id)
     this.setState({
       question: question
