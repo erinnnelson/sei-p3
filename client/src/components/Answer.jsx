@@ -2,6 +2,7 @@ import React from 'react';
 import { updateAnswer, deleteAnswer } from '../services/api-helper';
 import AnswerForm from './AnswerForm';
 
+
 class Answer extends React.Component {
   constructor(props) {
     super(props)
@@ -69,6 +70,7 @@ class Answer extends React.Component {
             <button onClick={this.handleUpdateClick}>edit</button>
             <button onClick={this.handleDeleteClick}>delete</button>
           </div>
+
 
         </div>
       )
