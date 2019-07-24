@@ -12,12 +12,14 @@ const UserForm = (props) => {
               name="username"
               type="text"
               value={props.loginFormData.username}
+              placeholder="Username"
             />
             <input
               onChange={props.handleLoginFormChange}
               name="password"
               type="password"
               value={props.loginFormData.password}
+              placeholder="Password"
             />
             <input
               type="submit"
@@ -34,18 +36,21 @@ const UserForm = (props) => {
               name="username"
               type="text"
               value={props.registerFormData.username}
+              placeholder="Username"
             />
             <input
               onChange={props.handleRegisterFormChange}
               name="email"
               type="text"
               value={props.registerFormData.email}
+              placeholder="Email"
             />
             <input
               onChange={props.handleRegisterFormChange}
               name="password"
               type="password"
               value={props.registerFormData.password}
+              placeholder="Password"
             />
             <input
               type="submit"

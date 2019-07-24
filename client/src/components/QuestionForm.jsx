@@ -23,12 +23,14 @@ const QuestionForm = (props) => {
           name="title"
           value={props.formData.title}
           onChange={props.handleChange}
+          placeholder="Title"
         />
         <input
           type="text"
           name="question"
           value={props.formData.question}
           onChange={props.handleChange}
+          placeholder="Question"
         />
         <input type="submit" value="submit" />
         <button onClick={props.cancel}>cancel</button>
