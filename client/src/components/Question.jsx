@@ -1,6 +1,9 @@
 import React from 'react';
 import QuestionForm from './QuestionForm';
 import { updateQuestion } from '../services/api-helper';
+import TopicQuestions from './TopicQuestions';
+import { deleteQuestion } from '../services/api-helper';
+import { withRouter } from 'react-router-dom'
 
 
 class Question extends React.Component {
@@ -22,9 +25,13 @@ class Question extends React.Component {
     })
   }
 
-  handleDeleteClick = () => {
+  handleDeleteClick = async (id) => {
+    const topic = this.props.topic;
+    const questionId = this.props.question.id;
+    await deleteQuestion(topic, questionId);
+    this.props.history.push(`/questions/${topic}`)
+  };
 
-  }
 
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -63,11 +70,14 @@ class Question extends React.Component {
           <p>{this.props.question.user.username}</p>
           <p>{this.state.formData.question}</p>
           <button onClick={this.handleUpdateClick}>edit</button>
-          <button>delete</button>
+          <button onClick={this.handleDeleteClick}>delete Question</button>
         </div>
       )
     )
   };
 }
 
-export default Question;
+export default withRouter(Question);
+
+
+{/* <button onClick={() => this.delete(kitten.id)}>Delete kitten</button> */ }

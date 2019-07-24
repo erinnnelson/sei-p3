@@ -13,6 +13,7 @@ const AnswerForm = (props) => {
           onChange={props.handleChange}
         />
         <input type="submit" value="submit" />
+        
       </form>
     </div>
   )
