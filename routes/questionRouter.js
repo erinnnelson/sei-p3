@@ -42,7 +42,9 @@ questionRouter.route('/:topic')
       });
       const ansUser = await newQuestion.setUser(user);
       console.log(ansUser.dataValues);
-      res.json(newQuestion);
+      const newQuestionRes = await Question.findByPk(newQuestion.dataValues.id, { include: [User] });
+      console.log(newQuestionRes.dataValues);
+      res.json(newQuestionRes);
     }
     catch (e) {
       next(e);

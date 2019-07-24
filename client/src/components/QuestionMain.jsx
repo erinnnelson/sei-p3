@@ -31,7 +31,6 @@ class QuestionMain extends React.Component {
   handleAnswerSubmit = async (e) => {
     e.preventDefault();
     const newAnswer = await createAnswer(this.state.question.topic, this.state.question.id, this.state.answerFormData);
-    console.log(newAnswer);
     this.setState(prevState => ({
       answers: [...prevState.answers, newAnswer],
       answerFormVisible: false,
@@ -53,11 +52,10 @@ class QuestionMain extends React.Component {
       formData: {
         answer: ''
       }
-    })
+    });
   }
 
   componentDidMount = async () => {
-    debugger;
     const question = await fetchQuestion(this.props.topic, this.props.id)
     console.log(question);
     this.setState({
@@ -95,7 +93,7 @@ class QuestionMain extends React.Component {
         }
       </div>
     )
-  }
+  };
 }
 
 export default QuestionMain;
