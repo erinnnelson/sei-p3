@@ -113,7 +113,7 @@ class App extends React.Component {
             </div>
           </div>
           <Route exact path='/' component={Main} />
-          <Route exact path='/questions/:topics/' component={(props) => <QuestionsViewer topic={props.match.params.topic} />} />
+          <Route exact path='/questions/:topics' component={(props) => <QuestionsViewer topic={props.match.params.topic} />} />
           <Route exact path='/questions/:topics/:id' component={(props) => <QuestionPage topic={props.match.params.topic} id={props.match.params.id} />} />
           <footer>
             <p>this is the footer</p>
