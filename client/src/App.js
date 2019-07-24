@@ -70,6 +70,7 @@ class App extends React.Component {
     removeToken();
     this.setState({
       user: null,
+      loginModalIsOpen: false,
     })
   }
 
