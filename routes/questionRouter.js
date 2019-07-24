@@ -73,8 +73,8 @@ questionRouter.route('/:topic/:question_id')
     try {
       await Question.update(req.body, { where: { id: req.params.question_id } })
       const updatedQuestion = await Question.findByPk(req.params.question_id);
-      console.log(updateQuestion.dataValues)
-      res.json(updatedQuestion);
+      console.log(updatedQuestion.dataValues);
+      res.json(updatedQuestion.dataValues);
     }
     catch (e) {
       next(e);
