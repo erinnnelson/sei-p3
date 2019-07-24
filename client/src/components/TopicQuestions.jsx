@@ -21,6 +21,7 @@ class TopicQuestions extends React.Component {
   async componentDidMount() {
     const topic = this.props.topic;
     const questions = await fetchQuestions(topic);
+    console.log(questions);
     this.setState({
       questions: questions,
     });

@@ -14,10 +14,10 @@ class QuestionMain extends React.Component {
 
   componentDidMount = async () => {
     const question = await fetchQuestion(this.props.topic, this.props.id)
+    console.log(question);
     this.setState({
       question: question
     });
-    console.log(question);
   }
 
   render() {
