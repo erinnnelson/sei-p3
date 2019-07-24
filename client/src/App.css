@@ -3,7 +3,10 @@
 }
 .navbar{
   background-color:lightblue;
+  margin-top: 0px;
+  padding-top: 20px;
 }
+
 footer{
   background-color: aqua;
 }
@@ -50,3 +53,30 @@ footer{
 height: 100vh;
 width: 100vw;
 }
+
+ .log-button, .reg-button {
+  padding: 8px;
+  width: 70px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: all 0.3s ease-out;
+}
+
+/* .log-button:hover,
+.log-button:focus,
+.log-button:active {
+  background: #fff;
+  color: #000;
+  transition: all 0.5s ease-in;
+} 
+
+.reg-button:hover,
+.reg-button:focus,
+.reg-button:active {
+  background: #fff;
+  color: #000;
+  transition: all 0.5s ease-in;
+}  */

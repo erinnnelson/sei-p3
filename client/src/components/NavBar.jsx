@@ -1,12 +1,21 @@
 import React from 'react';
+import ModalClick from './ModalClick';
 
-export default function NavBar() {
+export default function NavBar(props) {
   return (
     <div className="navbar">
-      <h3 className="logo">Tackle;</h3>
+      <h5 className="logo">Tackle;</h5>
       <nav id="side-links">
         <p>DropDown Topics</p>
-        <p>Log In</p>
+        {props.user ?
+          (<div>
+            <p>Hello {props.user.username}</p>
+            <button onClick={props.handleLogOut}>Logout</button>
+          </div>) :
+          <ModalClick
+            {...props}
+          />
+        }
       </nav>
 
     </div>

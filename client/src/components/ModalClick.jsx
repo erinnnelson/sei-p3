@@ -1,37 +1,66 @@
 import React from 'react';
 import Modal from 'react-modal';
+import UserForm from './UserForm';
 
 
-class UserCreds extends React.Component {
-  constructor() {
-    super();
+class ModalClick extends React.Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      modalIsOpen: false
+      loginModalIsOpen: false,
+      regModalIsOpen: false
     };
   }
 
-  openModal = () => {
-    this.setState({ modalIsOpen: true });
+  openLoginModal = () => {
+    this.setState({ loginModalIsOpen: true });
   }
 
-  closeModal = () => {
-    this.setState({ modalIsOpen: false });
+  openRegModal = () => {
+    this.setState({ regModalIsOpen: true });
+  }
+
+  closeLoginModal = () => {
+    this.setState({ loginModalIsOpen: false });
+  }
+
+  closeRegModal = () => {
+    this.setState({ regModalIsOpen: false });
   }
 
 
   render() {
     return (
       <div>
-        <button onClick={this.openModal}>open</button>
+        <button className="log-button" onClick={this.openLoginModal}>Log In</button>
         <Modal
-          isOpen={this.state.modalIsOpen}
-          onRequestClose={this.closeModal}
+          isOpen={this.state.loginModalIsOpen}
+          onRequestClose={this.closeLoginModal}
+          ariaHideApp={false}
         >
-          <button onClick={this.closeModal}>close</button>
+          <a onClick={this.closeLoginModal}>&times;</a>
+
+          <UserForm
+            {...this.props}
+            isLogin={true}
+          />
+        </Modal>
+
+        <button className="reg-button" onClick={this.openRegModal}>Register</button>
+        <Modal
+          isOpen={this.state.regModalIsOpen}
+          onRequestClose={this.closeRegModal}
+          ariaHideApp={false}
+        >
+          <a onClick={this.closeRegModal}>&times;</a>
+          <UserForm
+            {...this.props}
+            isLogin={false}
+          />
         </Modal>
       </div>
     );
   }
 }
 
-export default UserCreds;
+export default ModalClick;

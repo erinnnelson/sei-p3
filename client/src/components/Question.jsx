@@ -18,12 +18,11 @@ class QuestionPage extends React.Component {
   render() {
     return (
       (isEdit ? <QuestionForm formData={this.state.formData} /> : null)
-  
-      <div>
-        <h1>{this.state.formData.title}</h1>
-        <p>{this.props.question.user.username}</p>
-        <p>{this.state.formData.question}</p>
-      </div>
+      < div >
+      <h1>{this.state.formData.title}</h1>
+      <p>{this.props.question.user.username}</p>
+      <p>{this.state.formData.question}</p>
+      </div >
     )
   };
 }
