@@ -84,7 +84,7 @@ class TopicQuestions extends React.Component {
             handleSubmit={this.handleQuestionSubmit}
           />
           :
-          <button onClick={this.showForm}>Tackle a Question</button>
+          <button id="button-id" onClick={this.showForm}>Tackle a Question</button>
         }
         {this.state.questions.slice(0).reverse().map(question => (
           <Link

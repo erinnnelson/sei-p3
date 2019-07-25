@@ -5,13 +5,10 @@
   margin-top: 0;
   font-family: 'Open Sans', sans-serif;
   color: rgb(59 59 59);
-
 }
-
 .App-header{
   margin: auto 0;
 }
-
 .navbar{
   background-color: gray;
 }
@@ -51,7 +48,8 @@
 }
 
 .main-section{
-  height: 100vh;
+height: 30vh;
+background-color: beige;
 }
 
 .hero-img{
@@ -160,10 +158,10 @@ margin: 15px;
   background-color: rgb(235 244 250);
   border-radius: 5px;
   width: 50vw;
-  margin: 10px;
+  margin: 10px auto;
   padding: 15px;
-
 }
+
 .question-title {
   /* color: rgb(74 74 74); */
   color: rgb(251 89 113);
@@ -172,6 +170,11 @@ margin: 15px;
 
 .question-title-username{
 margin-top: -20px;
+}
+.question-title-date{
+  font-size: 8px;
+  font-style: italic;
+  margin-top: -20px;
 }
 
 /* GENERAL STYLES ACROSS APP */
@@ -205,16 +208,12 @@ margin-top: -20px;
 #button-id {
   background-color: rgb(58 59 113);
   color: white;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 5px;
   }
 
-.testing-red-box {
-  align-content: center;
-}
-.testing-1{
+
+.question-area{
 align-content: center;
+padding: 25px;
 }
 
 .answerform-form{
@@ -237,11 +236,11 @@ align-content: center;
   padding-bottom: 10px;
 }
   
-  footer {
+  /* footer {
   text-align: center;
   background-color: rgb(228, 207, 154, .5);
   height: 70px;
-}
+} */
 
 .git-logo {
   height: 30px;
