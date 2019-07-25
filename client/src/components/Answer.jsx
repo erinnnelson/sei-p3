@@ -7,11 +7,18 @@ class Answer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      answer: null,
       isEdit: false,
       formData: {
-        answer: this.props.answer.answer
+        answer: '',
       }
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      answer: this.props.answer,
+    })
   }
 
   handleUpdateClick = () => {
@@ -31,20 +38,41 @@ class Answer extends React.Component {
     }));
   };
 
+  edit = () => {
+    this.setState({
+      isEdit: true,
+      formData: {
+        answer: this.props.answer.answer,
+      }
+    })
+  }
+
+  cancel = (e) => {
+    e.preventDefault();
+    this.setState({
+      isEdit: false,
+      formData: {
+        answer: '',
+      }
+    })
+  }
+
   handleSubmit = async (e) => {
     e.preventDefault();
     const topic = this.props.topic;
     const questionId = this.props.questionId;
     const answerId = this.props.answer.id;
     const answer = this.state.formData;
-    const res = await updateAnswer(topic, questionId, answerId, answer);
+    const updatedAnswer = await updateAnswer(topic, questionId, answerId, answer);
     this.setState({
       isEdit: false,
+      answer: updatedAnswer,
     })
   }
 
   render() {
     return (
+      this.state.answer &&
       (this.state.isEdit
         ?
         <AnswerForm
@@ -52,14 +80,15 @@ class Answer extends React.Component {
           isEdit={this.state.isEdit}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          cancel={this.cancel}
         />
         :
         <div>
           <p>{this.props.answer.user.username}</p>
-          <p>{this.state.formData.answer}</p>
+          <p>{this.state.answer.answer}</p>
           {/* {(this.props.user.id === this.props.answer.user_id) && ( */}
           <div>
-            <button onClick={this.handleUpdateClick}>edit</button>
+            <button onClick={this.edit}>edit</button>
             <button onClick={() => this.props.handleDeleteClick(this.props.topic, this.props.questionId, this.props.answer.id)}>delete</button>
           </div>
 
