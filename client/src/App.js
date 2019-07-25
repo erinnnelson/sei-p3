@@ -80,8 +80,8 @@ class App extends React.Component {
     }
     catch (e) {
       this.setUserLoginError(true);
-      }
     }
+  }
 
   handleRegisterFormSubmit = async (formData) => {
     await this.fetchUsers();
@@ -153,11 +153,9 @@ class App extends React.Component {
             setRegEmailError={this.setRegEmailError}
             allUsers={this.state.users}
           />
-          <h1>Tackle;</h1>
         </header>
-        
-      <main>
 
+        <main>
           <div className="main-section">
             <div className="cover">
               <img className="hero-img" src="/img/hero-img.jpg" alt="hero-img"></img>
@@ -181,7 +179,7 @@ class App extends React.Component {
             />} />
 
           <footer>
-            <p>this is the footer</p>
+            <img className="git-logo" src="https://cdn4.iconfinder.com/data/icons/43-social-media-line-icons/24/github-512.png" />
           </footer>
         </main>
       </div>

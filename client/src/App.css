@@ -1,17 +1,45 @@
 .App{
   margin: auto 0;
+  padding-top: -30px;
+  margin-top: 0;
 }
+
 .App-header{
   margin: auto 0;
 }
+
 .navbar{
   background-color: aquamarine;
 }
 
+/* TOPIC SECTION */
+#topic-section {
+  display: grid;
+  grid-template-rows: 130px 130px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px 20px;
+  padding: 40px
+}
+
 .card-topic-img {
-  height: 70px;
-  width: 70px;
+  height: 70vh;
+  width: 100px;
   padding-top: 25px;
+}
+
+.topic-card {
+  width: 12vw;
+  height: 20vh;
+  margin: 15px;
+  display: flexbox;
+  flex-flow: row wrap;
+  background-color: white;
+  border-radius: 5px;
+  grid-column-gap: 50px;
+  }
+  
+.card-topic-img {
+ height: 15vh;
 }
 
 .logo {
@@ -28,12 +56,6 @@
   object-fit: cover;
 }
 
-
-/* *** TOPIC SECTION * TOPIC SECTION * TOPIC SECTION * TOPIC SECTION * TOPIC SECTION *** */
-#topic-section {
-  background-color: blueviolet;
-}
-
 /* LOGIN AND REG BUTTONS IN THE NAV BAR */
  .log-button, .reg-button {
   padding: 8px;
@@ -47,7 +69,6 @@
   transition: all 0.3s ease-out;
   color: black;
 }
-
 
 /* MAIN SECTION */
 .login-modal, .register-modal {
@@ -71,17 +92,15 @@
   background: rgb(247, 230, 137);
   padding: 20px; 
   border-radius: 200px;
-  
 }
 
+/* WEE X THAT YOU CLICK ON TO CLOSE THE MODAL */
 .x-close {
   display: inline-block;
   color: goldenrod;
   padding-right: -200px;
   font-weight: bold;
   font-size: 22px;
-
-
 }
 
 .reg-form, .login-form, .modal-header {
@@ -112,17 +131,14 @@ button:focus {
   outline: none; 
 }
   
-.topic-card {
-width: 20vw;
-height: 60vh;
-margin: 15px;
-display: flexbox;
-background-color: white;
-border-radius: 5px;
-grid-column-gap: 50px;
+footer {
+  text-align: center;
+  background-color: rgb(228, 207, 154, .5);
+  height: 70px;
 }
 
-.card-topic-img {
-  height: 15vh;
+.git-logo {
+  height: 30px;
+  opacity: .5;
+  margin: 0 auto;
 }
-
