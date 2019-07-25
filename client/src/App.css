@@ -15,7 +15,12 @@ a {
   margin: auto 0;
 }
 .navbar{
-  background-color: gray;
+  height: 10vh;
+  padding-left: 5vw;
+  background-color: gold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* TOPIC SECTION */
@@ -48,8 +53,14 @@ a {
  height: 15vh;
 }
 
+a {
+text-decoration: none;
+}
+
 .logo {
  font-family: 'Quicksand', sans-serif;
+ color: white;
+ font-size: 2em;
 }
 
 .main-section{
@@ -80,6 +91,10 @@ height: 80vh;
   letter-spacing: 1px;
   transition: all 0.3s ease-out;
   color: black;
+}
+
+.log-button:hover, .reg-button:hover {
+  cursor: pointer;
 }
 
 /* MAIN SECTION */
