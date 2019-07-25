@@ -3,8 +3,8 @@ import React from 'react';
 const QuestionForm = (props) => {
   return (
     <div>
-      <form onSubmit={props.handleSubmit}>
-        <select
+      <form className="main-question-form" onSubmit={props.handleSubmit}>
+        <select className="main-question-form-dropdown"
           name="topic"
           value={props.formData.topic}
           onChange={props.handleChange}
@@ -18,22 +18,22 @@ const QuestionForm = (props) => {
           <option name="node" value="node">Node</option>
           <option name="other" value="other">Other</option>
         </select>
-        <input
+        <input id="main-question-form-input"
           type="text"
           name="title"
           value={props.formData.title}
           onChange={props.handleChange}
           placeholder="Title"
         />
-        <input
+        <input id="main-question-form-input"
           type="text"
           name="question"
           value={props.formData.question}
           onChange={props.handleChange}
           placeholder="Question"
         />
-        <input type="submit" value="submit" />
-        <button onClick={props.cancel}>cancel</button>
+        <input id="button-id" type="submit" value="submit" />
+        <button id="button-id" onClick={props.cancel}>cancel</button>
       </form>
     </div>
   )

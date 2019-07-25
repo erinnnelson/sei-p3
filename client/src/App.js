@@ -16,8 +16,7 @@ class App extends React.Component {
       loginModalIsOpen: false,
       regModalIsOpen: false,
       userLoginError: false,
-      userRegNameError: false,
-      userRegEmailError: false
+      userRegisterError: false,
     }
   }
 
@@ -31,8 +30,7 @@ class App extends React.Component {
   openRegModal = () => {
     this.fetchUsers();
     this.setState({
-      userRegNameError: false,
-      userRegEmailError: false,
+      userRegisterError: false,
       regModalIsOpen: true
     });
   }
@@ -46,8 +44,7 @@ class App extends React.Component {
 
   closeRegModal = () => {
     this.setState({
-      userRegNameError: false,
-      userRegEmailError: false,
+      userRegisterError: false,
       regModalIsOpen: false
     });
   }
@@ -58,15 +55,9 @@ class App extends React.Component {
     })
   }
 
-  setRegNameError = (boolean) => {
+  setUserRegisterError = (boolean) => {
     this.setState({
       userRegNameError: boolean
-    })
-  }
-
-  setRegEmailError = (boolean) => {
-    this.setState({
-      userRegEmailError: boolean
     })
   }
 
@@ -84,27 +75,23 @@ class App extends React.Component {
   }
 
   handleRegisterFormSubmit = async (formData) => {
-    await this.fetchUsers();
-    this.state.users.forEach(async (user) => {
-      if (user.username === formData.username) {
-        this.setRegNameError(true)
-      }
-      if (user.email === formData.email) {
-        this.setRegEmailError(true)
-      }
-      if (!this.state.userRegNameError && !this.state.userRegEmailError || this.state.registerformData.username && this.state.registerformData.email && this.state.registerformData.password) {
-        const res = await createUser(formData);
-        this.setState({
-          user: res.user,
-          registerFormData: {
-            username: '',
-            email: '',
-            password: ''
-          },
-        });
-      }
-    })
-  }
+    try {
+      const res = await createUser(formData);
+      this.setState({
+        user: res.user,
+        registerFormData: {
+          username: '',
+          email: '',
+          password: ''
+        },
+      });
+    } catch (e) {
+      console.log(e);
+      this.setState({
+        userRegisterError: true,
+      })
+    }
+  };
 
   handleLogOut = (e) => {
     removeToken();
@@ -146,20 +133,17 @@ class App extends React.Component {
             closeLoginModal={this.closeLoginModal}
             closeRegModal={this.closeRegModal}
             userLoginError={this.state.userLoginError}
-            userRegNameError={this.state.userRegNameError}
-            userRegEmailError={this.state.userRegEmailError}
-            setUserLoginError={this.setUserLoginError}
-            setRegNameError={this.setRegNameError}
-            setRegEmailError={this.setRegEmailError}
+            userRegisterError={this.state.userRegisterError}
             allUsers={this.state.users}
           />
         </header>
 
-        <main>
+        <main id="main-section">
           <div className="main-section">
-            <div className="cover">
+            {/* <div className="cover">
               <img className="hero-img" src="/img/hero-img.jpg" alt="hero-img"></img>
-            </div>
+            </div> */}
+            <h1>tackle</h1>
           </div>
           <Route exact path='/' component={Main} />
           <Route
@@ -177,7 +161,6 @@ class App extends React.Component {
               id={tackle.match.params.id}
               openLoginModal={this.openLoginModal}
             />} />
-
           <footer>
             <img className="git-logo" src="https://cdn4.iconfinder.com/data/icons/43-social-media-line-icons/24/github-512.png" />
           </footer>
