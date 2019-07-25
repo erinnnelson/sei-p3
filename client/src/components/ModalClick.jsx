@@ -19,6 +19,27 @@ class ModalClick extends React.Component {
     };
   }
 
+  handleOpenRegisterClick = () => {
+    this.setState({
+      registerFormData: {
+        username: '',
+        password: '',
+        email: ''
+      }
+    })
+    this.props.openLoginModal();
+  }
+
+  handleOpenLoginClick = () => {
+    this.setState({
+      loginFormData: {
+        username: '',
+        password: ''
+      }
+    })
+    this.props.openRegModal();
+  }
+
 
   handleLoginFormChange = (e) => {
     const { name, value } = e.target;
@@ -43,7 +64,7 @@ class ModalClick extends React.Component {
   render() {
     return (
       <div>
-        <button className="log-button" onClick={this.props.openLoginModal}>Log In</button>
+        <button className="log-button" onClick={this.handleOpenRegisterClick}>Log In</button>
         <Modal
           isOpen={this.props.loginModalIsOpen}
           onRequestClose={this.props.closeLoginModal}
@@ -59,7 +80,7 @@ class ModalClick extends React.Component {
           />
         </Modal>
 
-        <button className="reg-button" onClick={this.props.openRegModal}>Register</button>
+        <button className="reg-button" onClick={this.handleOpenLoginClick}>Register</button>
         <Modal
           isOpen={this.props.regModalIsOpen}
           onRequestClose={this.props.closeRegModal}
