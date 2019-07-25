@@ -30,8 +30,7 @@ class App extends React.Component {
   openRegModal = () => {
     this.fetchUsers();
     this.setState({
-      userRegNameError: false,
-      userRegEmailError: false,
+      userRegisterError: false,
       regModalIsOpen: true
     });
   }
@@ -45,8 +44,7 @@ class App extends React.Component {
 
   closeRegModal = () => {
     this.setState({
-      userRegNameError: false,
-      userRegEmailError: false,
+      userRegisterError: false,
       regModalIsOpen: false
     });
   }
@@ -57,15 +55,9 @@ class App extends React.Component {
     })
   }
 
-  setRegNameError = (boolean) => {
+  setUserRegisterError = (boolean) => {
     this.setState({
       userRegNameError: boolean
-    })
-  }
-
-  setRegEmailError = (boolean) => {
-    this.setState({
-      userRegEmailError: boolean
     })
   }
 
@@ -100,7 +92,6 @@ class App extends React.Component {
       })
     }
   };
-
 
   handleLogOut = (e) => {
     removeToken();
@@ -143,7 +134,6 @@ class App extends React.Component {
             closeRegModal={this.closeRegModal}
             userLoginError={this.state.userLoginError}
             userRegisterError={this.state.userRegisterError}
-            setUserLoginError={this.setUserLoginError}
             allUsers={this.state.users}
           />
           <h1>Tackle;</h1>

@@ -31,16 +31,16 @@ const main = async () => {
   });
 
   const question1 = await Question.create({
-    title: 'I don’t know how to do a thing…',
-    topic: 'javascript',
-    question: "It’s a wonderful morning for breakfast tacos. Add in a few with guac and diced onions. Tacos al pastor made with adobada meat?",
+    title: 'Unique STRING in Sequelize model',
+    topic: 'sql',
+    question: "I am trying to make a model for users in postGres and I don't know to mkae it so that there aren't any duplicates.",
     solved: false
   });
 
   const question2 = await Question.create({
-    title: 'Help!',
+    title: 'Gaurd operator',
     topic: 'css',
-    question: "Tacos, again? This will be 5 times this week and it’s only Tuesday. It’s long been rumored that the chupacabra is really just a crazed man who’s local taco shop went out of business. How bout a gosh darn quesadilla? Ooh, with diced onions and a pinch of cilantro. Burritos are very tasty. Black or pinto beans?",
+    question: "How does the gaurd operator work? Can someone give me some examples?",
     solved: false
   });
 

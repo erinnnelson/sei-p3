@@ -23,13 +23,14 @@ const UserForm = (props) => {
               type="password"
               value={props.loginFormData.password}
               placeholder="Password"
-            /><br></br>
+            />
+            <br />
+              {props.userLoginError && <p>Login information incorrect</p>}
             <input className="inside-modal-login"
               type="submit"
               value="tackle"
             />
           </form>
-          {props.userLoginError ? <p>Login information incorrect</p> : null}
         </>
         :
         <>
@@ -58,14 +59,14 @@ const UserForm = (props) => {
               type="password"
               value={props.registerFormData.password}
               placeholder="Password"
-            /><br></br>
+            />
+            <br />
+            {props.userRegisterError && <p>Username or email is already registered</p>}
             <input className="inside-modal-login"
               type="submit"
               value="tackle"
             />
           </form>
-          {props.userRegNameError && <p>Username taken</p>}
-          {props.userRegEmailError && <p>Email is already registered</p>}
         </>
       }
     </div>
