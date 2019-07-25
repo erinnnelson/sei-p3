@@ -101,20 +101,20 @@ class Question extends React.Component {
           <h2 className="question-title">{this.state.question.title}</h2>
           <p className="question-title-username"><small>{this.props.question.user.username}</small></p>
           <p>{this.state.question.question}</p>
-        <p>{`${date}`}</p>
+          <p>{`${date}`}</p>
           {(this.props.user && (this.props.user.id === this.props.question.userId)) && (
-         <div>  
-          <button id="button-id" onClick={this.edit}>Edit</button>
-          <button id="button-id" onClick={this.handleDeleteClick}>Delete</button>
-         </div>
-
+            <div>
+              <button id="button-id" onClick={this.edit}>Edit</button>
+              <button id="button-id" onClick={this.handleDeleteClick}>Delete</button>
+            </div>
+          )}
         </div>
+        )
       )
-    )
-  };
-}
-
-export default withRouter(Question);
-
-
-{/* <button onClick={() => this.delete(kitten.id)}>Delete kitten</button> */ }
+    };
+  }
+  
+  export default withRouter(Question);
+  
+  
+{/* <button onClick={() => this.delete(kitten.id)}>Delete kitten</button> */}
