@@ -58,7 +58,6 @@ class ModalClick extends React.Component {
     this.props.closeLoginModal();
   }
 
-
   handleLoginFormChange = (e) => {
     const { name, value } = e.target;
     this.setState(prevState => ({
