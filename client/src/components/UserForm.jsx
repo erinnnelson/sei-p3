@@ -29,6 +29,7 @@ const UserForm = (props) => {
               value="login"
             />
           </form>
+          {props.userError ? <p>Login information incorrect</p> : null}
         </>
         :
         <>
@@ -63,6 +64,8 @@ const UserForm = (props) => {
               value="register"
             />
           </form>
+          {(props.userError === 'reg-username') && <p>Username taken</p>}
+          {(props.userError === 'reg-email') && <p>Email is already registered</p>}
         </>
       }
     </div>

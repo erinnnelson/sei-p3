@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { verifyToken, createUser, loginUser, removeToken } from './services/api-helper';
+import { verifyToken, createUser, loginUser, removeToken, fetchUsers } from './services/api-helper';
 import TopicQuestions from './components/TopicQuestions';
 import NavBar from './components/NavBar';
 import Main from './components/Main';
@@ -14,23 +14,36 @@ class App extends React.Component {
       user: null,
       loginModalIsOpen: false,
       regModalIsOpen: false,
+      userError: ''
     }
   }
 
   openLoginModal = () => {
-    this.setState({ loginModalIsOpen: true });
+    this.setState({
+      userError: '',
+      loginModalIsOpen: true
+    });
   }
 
   openRegModal = () => {
-    this.setState({ regModalIsOpen: true });
+    this.setState({
+      userError: '',
+      regModalIsOpen: true
+    });
   }
 
   closeLoginModal = () => {
-    this.setState({ loginModalIsOpen: false });
+    this.setState({
+      userError: '',
+      loginModalIsOpen: false
+    });
   }
 
   closeRegModal = () => {
-    this.setState({ regModalIsOpen: false });
+    this.setState({
+      userError: '',
+      regModalIsOpen: false
+    });
   }
 
   async componentDidMount() {
@@ -42,28 +55,48 @@ class App extends React.Component {
     }
   }
 
-
+  resetUserError = () => {
+    this.setState({
+      userError: ''
+    })
+  }
 
   handleLoginFormSubmit = async (formData) => {
-    const res = await loginUser(formData);
-    this.setState({
-      user: res,
-    });
-  };
+    try {
+      const res = await loginUser(formData);
+      console.log(res);
+      this.setState({
+        user: res,
+      });
+    }
+    catch (e) {
+      this.setState({
+        userError: 'login'
+      })
+    }
+  }
 
 
 
   handleRegisterFormSubmit = async (formData) => {
-    const res = await createUser(formData);
-    this.setState({
-      user: res.user,
-      registerFormData: {
-        username: '',
-        email: '',
-        password: ''
-      },
-    });
-  };
+    const createUserCheck = await fetchUsers();
+    createUserCheck.forEach(async (user) => {
+      if (user.username === formData.username || user.email === formData.username) {
+        return
+      } else {
+        const res = await createUser(formData);
+        this.setState({
+          user: res.user,
+          registerFormData: {
+            username: '',
+            email: '',
+            password: ''
+          },
+        });
+      };
+    })
+  }
+
 
   handleLogOut = (e) => {
     removeToken();
@@ -81,7 +114,17 @@ class App extends React.Component {
             handleLoginFormSubmit={this.handleLoginFormSubmit}
             handleRegisterFormSubmit={this.handleRegisterFormSubmit}
             user={this.state.user}
-            handleLogOut={this.handleLogOut} />
+            handleLogOut={this.handleLogOut}
+            loginModalIsOpen={this.state.loginModalIsOpen}
+            regModalIsOpen={this.state.regModalIsOpen}
+            openLoginModal={this.openLoginModal}
+            openRegModal={this.openRegModal}
+            closeLoginModal={this.closeLoginModal}
+            closeRegModal={this.closeRegModal}
+            userError={this.state.userError}
+            resetUserError={this.state.userError}
+          />
+          <h1>Tackle;</h1>
         </header>
         
       <main>
