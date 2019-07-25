@@ -33,14 +33,14 @@ class ModalClick extends React.Component {
     this.setState({
       loginFormData: {
         username: '',
-        password: ''
+        password: '',
       }
     })
   }
 
   handleOpenRegisterClick = () => {
     this.resetRegisterForm();
-    this.props.openLoginModal();
+    this.props.openRegModal();
   }
 
   handleCloseRegisterClick = () => {
@@ -50,7 +50,7 @@ class ModalClick extends React.Component {
 
   handleOpenLoginClick = () => {
     this.resetLoginForm();
-    this.props.openRegModal();
+    this.props.openLoginModal();
   }
 
   handleCloseLoginClick = () => {
@@ -81,15 +81,16 @@ class ModalClick extends React.Component {
 
   render() {
     return (
-      <>
-        <button className="log-button" onClick={this.openLoginModal}>Log In</button>
+      <div>
+        <button className="log-button" onClick={this.handleOpenLoginClick}>Log In</button>
         <Modal className="login-modal"
-          isOpen={this.state.loginModalIsOpen}
-          onRequestClose={this.closeLoginModal}
+          isOpen={this.props.loginModalIsOpen}
+          onRequestClose={this.handleCloseLoginClick}
           ariaHideApp={false}
         >
           <div className="modal-content">
-            <a className="x-close" onClick={this.closeLoginModal}>&#10006;</a>
+            <a className="x-close" onClick={this.handleCloseLoginClick}>&#10006;</a>
+
             <UserForm
               {...this.props}
               isLogin={true}
@@ -99,14 +100,14 @@ class ModalClick extends React.Component {
           </div>
         </Modal>
 
-        <button className="reg-button" onClick={this.openRegModal}>Register</button>
+        <button className="reg-button" onClick={this.handleOpenRegisterClick}>Register</button>
         <Modal className="register-modal"
-          isOpen={this.state.regModalIsOpen}
-          onRequestClose={this.closeRegModal}
+          isOpen={this.props.regModalIsOpen}
+          onRequestClose={this.handleCloseRegisterClick}
           ariaHideApp={false}
         >
           <div className="modal-content">
-            <a className="x-close" onClick={this.closeRegModal}>&times;</a>
+            <a className="x-close" onClick={this.handleCloseRegisterClick}>&times;</a>
             <UserForm
               {...this.props}
               isLogin={false}
@@ -114,39 +115,8 @@ class ModalClick extends React.Component {
               handleRegisterFormChange={this.handleRegisterFormChange}
             />
           </div>
-         
-      <div>
-        <button className="log-button" onClick={this.handleOpenRegisterClick}>Log In</button>
-        <Modal
-          isOpen={this.props.loginModalIsOpen}
-          onRequestClose={this.handleCloseLoginClick}
-          ariaHideApp={false}
-        >
-          <a onClick={this.handleCloseLoginClick}>&times;</a>
-
-          <UserForm
-            {...this.props}
-            isLogin={true}
-            loginFormData={this.state.loginFormData}
-            handleLoginFormChange={this.handleLoginFormChange}
-          />
         </Modal>
-
-        <button className="reg-button" onClick={this.handleOpenLoginClick}>Register</button>
-        <Modal
-          isOpen={this.props.regModalIsOpen}
-          onRequestClose={this.handleCloseRegisterClick}
-          ariaHideApp={false}
-        >
-          <a onClick={this.handleCloseRegisterClick}>&times;</a>
-          <UserForm
-            {...this.props}
-            isLogin={false}
-            registerFormData={this.state.registerFormData}
-            handleRegisterFormChange={this.handleRegisterFormChange}
-          />
-        </Modal>
-      </>
+      </div>
     );
   }
 }
