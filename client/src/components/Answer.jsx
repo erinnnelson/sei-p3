@@ -71,6 +71,7 @@ class Answer extends React.Component {
   }
 
   render() {
+    const date = new Date(this.props.answer.createdAt);
     return (
       this.state.answer &&
       (this.state.isEdit
@@ -86,6 +87,7 @@ class Answer extends React.Component {
         <div>
           <p>{this.props.answer.user.username}</p>
           <p>{this.state.answer.answer}</p>
+          <p>{`${date}`}</p>
           {(this.props.user && (this.props.user.id === this.props.answer.userId)) && (
             <div>
               <button onClick={this.edit}>edit</button>
