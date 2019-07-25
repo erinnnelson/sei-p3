@@ -6,6 +6,11 @@
   font-family: 'Open Sans', sans-serif;
   color: rgb(59 59 59);
 }
+
+a {
+  text-decoration: none;
+}
+
 .App-header{
   margin: auto 0;
 }
@@ -154,7 +159,16 @@ margin: 15px;
 }
 
 /* *** QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION */
-.question-title-card{
+.topic-title {
+  font-size: 4em;
+  margin-bottom: 0;
+}
+
+.topic-subtitle {
+  margin-top: 0;
+}
+
+.question-title-card {
   background-color: rgb(235 244 250);
   border-radius: 5px;
   width: 50vw;
