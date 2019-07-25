@@ -84,7 +84,7 @@ class Answer extends React.Component {
           cancel={this.cancel}
         />
         :
-        <div>
+        <div className="answer-title-card">
           <p>{this.props.answer.user.username}</p>
           <p>{this.state.answer.answer}</p>
           <p>{`${date}`}</p>

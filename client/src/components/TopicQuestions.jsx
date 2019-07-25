@@ -92,7 +92,7 @@ class TopicQuestions extends React.Component {
             to={`/questions/${this.props.topic}/${question.id}`}>
             <div >
               <p>{question.title}</p>
-              <p>{question.question}</p>
+              <p>{question.question.slice(0, 75)}...</p>
               <p>{question.user.username}</p>
               <hr />
             </div>
