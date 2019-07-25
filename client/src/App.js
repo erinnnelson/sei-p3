@@ -16,8 +16,7 @@ class App extends React.Component {
       loginModalIsOpen: false,
       regModalIsOpen: false,
       userLoginError: false,
-      userRegNameError: false,
-      userRegEmailError: false
+      userRegisterError: false,
     }
   }
 
@@ -80,31 +79,28 @@ class App extends React.Component {
     }
     catch (e) {
       this.setUserLoginError(true);
-      }
     }
+  }
 
   handleRegisterFormSubmit = async (formData) => {
-    await this.fetchUsers();
-    this.state.users.forEach(async (user) => {
-      if (user.username === formData.username) {
-        this.setRegNameError(true)
-      }
-      if (user.email === formData.email) {
-        this.setRegEmailError(true)
-      }
-      if (!this.state.userRegNameError && !this.state.userRegEmailError || this.state.registerformData.username && this.state.registerformData.email && this.state.registerformData.password) {
-        const res = await createUser(formData);
-        this.setState({
-          user: res.user,
-          registerFormData: {
-            username: '',
-            email: '',
-            password: ''
-          },
-        });
-      }
-    })
-  }
+    try {
+      const res = await createUser(formData);
+      this.setState({
+        user: res.user,
+        registerFormData: {
+          username: '',
+          email: '',
+          password: ''
+        },
+      });
+    } catch (e) {
+      console.log(e);
+      this.setState({
+        userRegisterError: true,
+      })
+    }
+  };
+
 
   handleLogOut = (e) => {
     removeToken();
@@ -146,17 +142,14 @@ class App extends React.Component {
             closeLoginModal={this.closeLoginModal}
             closeRegModal={this.closeRegModal}
             userLoginError={this.state.userLoginError}
-            userRegNameError={this.state.userRegNameError}
-            userRegEmailError={this.state.userRegEmailError}
+            userRegisterError={this.state.userRegisterError}
             setUserLoginError={this.setUserLoginError}
-            setRegNameError={this.setRegNameError}
-            setRegEmailError={this.setRegEmailError}
             allUsers={this.state.users}
           />
           <h1>Tackle;</h1>
         </header>
-        
-      <main>
+
+        <main>
 
           <div className="main-section">
             <div className="cover">

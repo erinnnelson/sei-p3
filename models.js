@@ -10,7 +10,7 @@ const sequelize = new Sequelize({
 
 const User = sequelize.define('user', {
   username: { type: Sequelize.STRING, unique: true },
-  email: Sequelize.STRING,
+  email: { type: Sequelize.STRING, unique: true },
   password_digest: Sequelize.STRING
 });
 
