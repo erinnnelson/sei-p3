@@ -7,8 +7,6 @@ class ModalClick extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loginModalIsOpen: false,
-      regModalIsOpen: false,
       registerFormData: {
         username: '',
         password: '',
@@ -21,21 +19,6 @@ class ModalClick extends React.Component {
     };
   }
 
-  openLoginModal = () => {
-    this.setState({ loginModalIsOpen: true });
-  }
-
-  openRegModal = () => {
-    this.setState({ regModalIsOpen: true });
-  }
-
-  closeLoginModal = () => {
-    this.setState({ loginModalIsOpen: false });
-  }
-
-  closeRegModal = () => {
-    this.setState({ regModalIsOpen: false });
-  }
 
   handleLoginFormChange = (e) => {
     const { name, value } = e.target;
@@ -60,13 +43,13 @@ class ModalClick extends React.Component {
   render() {
     return (
       <div>
-        <button className="log-button" onClick={this.openLoginModal}>Log In</button>
+        <button className="log-button" onClick={this.props.openLoginModal}>Log In</button>
         <Modal
-          isOpen={this.state.loginModalIsOpen}
-          onRequestClose={this.closeLoginModal}
+          isOpen={this.props.loginModalIsOpen}
+          onRequestClose={this.props.closeLoginModal}
           ariaHideApp={false}
         >
-          <a onClick={this.closeLoginModal}>&times;</a>
+          <a onClick={this.props.closeLoginModal}>&times;</a>
 
           <UserForm
             {...this.props}
@@ -76,13 +59,13 @@ class ModalClick extends React.Component {
           />
         </Modal>
 
-        <button className="reg-button" onClick={this.openRegModal}>Register</button>
+        <button className="reg-button" onClick={this.props.openRegModal}>Register</button>
         <Modal
-          isOpen={this.state.regModalIsOpen}
-          onRequestClose={this.closeRegModal}
+          isOpen={this.props.regModalIsOpen}
+          onRequestClose={this.props.closeRegModal}
           ariaHideApp={false}
         >
-          <a onClick={this.closeRegModal}>&times;</a>
+          <a onClick={this.props.closeRegModal}>&times;</a>
           <UserForm
             {...this.props}
             isLogin={false}

@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { verifyToken, createUser, loginUser, removeToken } from './services/api-helper';
-import UserForm from './components/UserForm';
 import TopicQuestions from './components/TopicQuestions';
 import NavBar from './components/NavBar';
 import Main from './components/Main';
@@ -13,8 +12,27 @@ class App extends React.Component {
     super();
     this.state = {
       user: null,
+      loginModalIsOpen: false,
+      regModalIsOpen: false,
     }
   }
+
+  openLoginModal = () => {
+    this.setState({ loginModalIsOpen: true });
+  }
+
+  openRegModal = () => {
+    this.setState({ regModalIsOpen: true });
+  }
+
+  closeLoginModal = () => {
+    this.setState({ loginModalIsOpen: false });
+  }
+
+  closeRegModal = () => {
+    this.setState({ regModalIsOpen: false });
+  }
+
   async componentDidMount() {
     const user = await verifyToken();
     if (user) {
@@ -51,6 +69,7 @@ class App extends React.Component {
     removeToken();
     this.setState({
       user: null,
+      loginModalIsOpen: false,
     })
   }
 
@@ -64,7 +83,8 @@ class App extends React.Component {
             user={this.state.user}
             handleLogOut={this.handleLogOut} />
         </header>
-        <main>
+        
+      <main>
 
           <div className="main-section">
             <div className="cover">
@@ -76,13 +96,17 @@ class App extends React.Component {
             exact path='/questions/:topic/'
             component={(tackle) => <TopicQuestions
               user={this.state.user}
-              topic={tackle.match.params.topic} />} />
+              topic={tackle.match.params.topic}
+              openLoginModal={this.openLoginModal}
+            />} />
           <Route
             exact path='/questions/:topic/:id'
             component={(tackle) => <QuestionMain
               user={this.state.user}
               topic={tackle.match.params.topic}
-              id={tackle.match.params.id} />} />
+              id={tackle.match.params.id}
+              openLoginModal={this.openLoginModal}
+            />} />
 
           <footer>
             <p>this is the footer</p>
