@@ -36,7 +36,7 @@ userRouter.route('/')
     }
   })
 
-userRouter.route('/:id')
+userRouter.route('id/:id')
 
   .get(async (req, res, next) => {
     try {

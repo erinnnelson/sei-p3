@@ -42,7 +42,9 @@ questionRouter.route('/:topic')
       });
       const ansUser = await newQuestion.setUser(user);
       console.log(ansUser.dataValues);
-      res.json(newQuestion);
+      const newQuestionRes = await Question.findByPk(newQuestion.dataValues.id, { include: [User] });
+      console.log(newQuestionRes.dataValues);
+      res.json(newQuestionRes);
     }
     catch (e) {
       next(e);
@@ -71,10 +73,10 @@ questionRouter.route('/:topic/:question_id')
 
   .put(async (req, res, next) => {
     try {
-      await Question.update(req.body, { where: { id: req.params.question_id } })
-      const updatedQuestion = await Question.findByPk(req.params.question_id);
-      console.log(updatedQuestion.dataValues);
-      res.json(updatedQuestion.dataValues);
+      const id = req.params.question_id;
+      await Question.update(req.body, { where: { id: id } });
+      const question = await Question.findByPk(id);
+      res.json(question);
     }
     catch (e) {
       next(e);

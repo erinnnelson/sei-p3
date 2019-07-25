@@ -1,58 +1,37 @@
-.App {
-  text-align: center;
+.App{
+  margin: auto 0;
+}
+.App-header{
+  margin: auto 0;
 }
 .navbar{
-  background-color:lightblue;
-  margin-top: 0px;
-  padding-top: 20px;
-}
-
-footer{
-  background-color: aqua;
-}
-
-.main-app{
-  background-color: pink;
-  height: 100vh;
-  width: 100vw;
-}
-/* TOPIC SECTION  */
-#topic-section{
-  background-color:lightcyan;
-}
-
-.topic-card{
-  background-color: blue;
-  max-height: 150px;
-  max-width: 150px;
-  border: solid 2px black;
-  margin: 20px;
+  background-color: aquamarine;
 }
 
 .card-topic-img {
   height: 70px;
   width: 70px;
   padding-top: 25px;
+
+.logo {
+ font-family: 'Quicksand', sans-serif;
 }
 
-/* MAIN SECTION */
 .main-section{
-  background-color:purple;
-  color:white;
   height: 100vh;
-  width: 100vw;
 }
-
+  
 .hero-img{
   height: 100vh;
   width: 100vw;
+  object-fit: cover;
 }
 
-.cover-img{ 
-height: 100vh;
-width: 100vw;
-}
 
+/* *** TOPIC SECTION * TOPIC SECTION * TOPIC SECTION * TOPIC SECTION * TOPIC SECTION *** */
+#topic-section {
+  background-color: blueviolet;
+}
 
 /* LOGIN AND REG BUTTONS IN THE NAV BAR */
  .log-button, .reg-button {
@@ -131,3 +110,18 @@ outline: none;
 button:focus { 
   outline: none; 
 }
+  
+.topic-card {
+width: 20vw;
+height: 60vh;
+margin: 15px;
+display: flexbox;
+background-color: white;
+border-radius: 5px;
+grid-column-gap: 50px;
+}
+
+.card-topic-img {
+  height: 15vh;
+}
+

@@ -42,7 +42,6 @@ export const verifyToken = async () => {
   else { console.log('user not logged in') };
 };
 
-
 export const createUser = async (data) => {
   const res = await api.post('/users', data);
   storeToken(res.data.token);
@@ -56,8 +55,13 @@ export const loginUser = async (data) => {
   return user;
 };
 
+export const fetchUsers = async () => {
+  const res = await api.get(`/users/`);
+  return res.data;
+};
+
 export const fetchUser = async (id) => {
-  const res = await api.get(`/users/${id}`);
+  const res = await api.get(`/users/id/${id}`);
   return res.data;
 };
 
@@ -82,7 +86,7 @@ export const fetchQuestion = async (topic, id) => {
 
 export const updateQuestion = async (topic, id, data) => {
   const res = await api.put(`/questions/${topic}/${id}`, data);
-  return res;
+  return res.data;
 };
 
 export const deleteQuestion = async (topic, id) => {
