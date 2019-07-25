@@ -4,9 +4,9 @@ const AnswerForm = (props) => {
 
   return (
     <div>
-      <form onSubmit={props.handleSubmit}>
+      <form className="answerform-form" onSubmit={props.handleSubmit}>
         <label htmlFor="answer" value="answer" />
-        <input
+        <input id="main-input-tackle-a-question"
           type="text"
           name="answer"
           value={props.formData.answer}

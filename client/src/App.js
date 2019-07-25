@@ -146,15 +146,13 @@ class App extends React.Component {
             setUserLoginError={this.setUserLoginError}
             allUsers={this.state.users}
           />
-          <h1>Tackle;</h1>
         </header>
-
-        <main>
-
+        <main id="main-section">
           <div className="main-section">
-            <div className="cover">
+            {/* <div className="cover">
               <img className="hero-img" src="/img/hero-img.jpg" alt="hero-img"></img>
-            </div>
+            </div> */}
+            <h1>tackle</h1>
           </div>
           <Route exact path='/' component={Main} />
           <Route
@@ -172,10 +170,6 @@ class App extends React.Component {
               id={tackle.match.params.id}
               openLoginModal={this.openLoginModal}
             />} />
-
-          <footer>
-            <p>this is the footer</p>
-          </footer>
         </main>
       </div>
     );
