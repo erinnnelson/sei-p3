@@ -158,7 +158,8 @@ button:focus {
   margin-top: 0;
 }
 
-.question-title-card {
+/* *** QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION */
+.question-title-card, .answer-title-card, .answerform-form, .main-question-form{
   background-color: rgb(235 244 250);
   border-radius: 5px;
   width: 50vw;
@@ -179,6 +180,15 @@ margin-top: -20px;
   font-size: 8px;
   font-style: italic;
   margin-top: -20px;
+}
+
+/* *** ANSWER SECTION * ANSWER SECTION * ANSWER SECTION * ANSWER SECTION */
+.answer-title-card {
+  background-color: rgba(245 245 255);
+}
+
+.answerform-form{
+  background-color: rgb(225 205 215);
 }
 
 /* GENERAL STYLES ACROSS APP */
@@ -218,14 +228,6 @@ margin-top: -20px;
 .question-area{
 align-content: center;
 padding: 25px;
-}
-
-.answerform-form{
-  background-color: rgb(58 59 113);
-  padding: 20px;
-  border-radius: 5px;
-  height: 40vh;
-  width: 40vw;
 }
 
 #main-input-tackle-a-question{

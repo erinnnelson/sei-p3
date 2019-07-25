@@ -6,14 +6,15 @@ const AnswerForm = (props) => {
     <div>
       <form className="answerform-form" onSubmit={props.handleSubmit}>
         <label htmlFor="answer" value="answer" />
-        <input id="main-input-tackle-a-question"
-          type="text"
+        <textarea id="main-input-tackle-an-answer"
           name="answer"
+          cols="1"
+          rows="16"
           value={props.formData.answer}
           onChange={props.handleChange}
-        />
-        <input id="button-id" type="submit" value="submit" />
-        <button id="button-id" onClick={props.cancel}>cancel</button>
+        ></textarea>
+        <input type="submit" value="submit" />
+        <button onClick={props.cancel}>cancel</button>
       </form>
     </div>
   )

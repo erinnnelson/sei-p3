@@ -25,13 +25,13 @@ const QuestionForm = (props) => {
           onChange={props.handleChange}
           placeholder="Title"
         />
-        <input id="main-question-form-input"
-          type="text"
+        <textarea id="main-input-tackle-a-question"
           name="question"
+          cols="1"
+          rows="16"
           value={props.formData.question}
           onChange={props.handleChange}
-          placeholder="Question"
-        />
+        ></textarea>
         <input id="button-id" type="submit" value="submit" />
         <button id="button-id" onClick={props.cancel}>cancel</button>
       </form>

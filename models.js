@@ -8,6 +8,24 @@ const sequelize = new Sequelize({
   }
 });
 
+// let sequelize;
+// if (process.env.DATABASE_URL) {
+//   sequelize = new Sequelize(process.env.DATABASE_URL, {
+//     dialect: 'postgres',
+//     define: {
+//       underscored: true
+//     }
+//   });
+// } else {
+//   sequelize = new Sequelize({
+//     database: 'tackle_db',
+//     dialect: 'postgres',
+//     define: {
+//       underscored: true,
+//     },
+//   });
+// }
+
 const User = sequelize.define('user', {
   username: { type: Sequelize.STRING, unique: true },
   email: { type: Sequelize.STRING, unique: true },
