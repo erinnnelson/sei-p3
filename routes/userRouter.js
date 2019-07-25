@@ -22,7 +22,6 @@ userRouter.route('/')
     try {
       const { username, email, password } = req.body;
       const check = await User.count({ where: { username: username } })
-      debugger;
       if (check === 0) {
         const pwdDigest = await bcrypt.hash(password, SALT);
         const user = await User.create({
