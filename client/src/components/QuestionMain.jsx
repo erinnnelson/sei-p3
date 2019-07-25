@@ -76,9 +76,9 @@ class QuestionMain extends React.Component {
 
   render() {
     return (
-      <div className="testing-red-box">
+      <div>
         {this.state.question &&
-          (<div className="testing-1">
+          (<div className="question-area">
             <Question
               question={this.state.question}
               topic={this.state.question.topic}
@@ -93,7 +93,7 @@ class QuestionMain extends React.Component {
                 handleSubmit={this.handleAnswerSubmit}
               />
               :
-              <button onClick={this.showAnswerForm}>Tackle an Answer</button>
+              <button id="button-id" onClick={this.showAnswerForm}>Tackle an Answer</button>
             }
             {this.state.answers.slice(0).reverse().map(answer => (
               <div key={answer.id}>

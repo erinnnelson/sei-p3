@@ -141,9 +141,8 @@ class App extends React.Component {
         <main id="main-section">
           <div className="main-section">
             {/* <div className="cover">
-              <img className="hero-img" src="/img/hero-img.jpg" alt="hero-img"></img>
+              <img className="hero-img" src="https://t3.ftcdn.net/jpg/02/18/02/54/240_F_218025408_vAqShwhdxe2wU9WF9YjEYg62sbCQEGMz.jpg" alt="hero-img"></img>
             </div> */}
-            <h1>tackle</h1>
           </div>
           <Route exact path='/' component={Main} />
           <Route
@@ -162,7 +161,7 @@ class App extends React.Component {
               openLoginModal={this.openLoginModal}
             />} />
           <footer>
-            <img className="git-logo" src="https://cdn4.iconfinder.com/data/icons/43-social-media-line-icons/24/github-512.png" />
+            {/* <img className="git-logo" src="https://cdn4.iconfinder.com/data/icons/43-social-media-line-icons/24/github-512.png" /> */}
           </footer>
         </main>
       </div>
