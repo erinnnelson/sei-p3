@@ -42,12 +42,6 @@ export const verifyToken = async () => {
   else { console.log('user not logged in') };
 };
 
-export const createUser = async (data) => {
-  const res = await api.post('/users', data);
-  storeToken(res.data.token);
-  return res.data;
-};
-
 export const loginUser = async (data) => {
   const res = await api.post('/users/login', data);
   const { user, token } = res.data;
@@ -62,6 +56,12 @@ export const fetchUsers = async () => {
 
 export const fetchUser = async (id) => {
   const res = await api.get(`/users/id/${id}`);
+  return res.data;
+};
+
+export const createUser = async (data) => {
+  const res = await api.post('/users', data);
+  storeToken(res.data.token);
   return res.data;
 };
 

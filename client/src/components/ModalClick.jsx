@@ -19,7 +19,7 @@ class ModalClick extends React.Component {
     };
   }
 
-  handleOpenRegisterClick = () => {
+  resetRegisterForm = () => {
     this.setState({
       registerFormData: {
         username: '',
@@ -27,17 +27,35 @@ class ModalClick extends React.Component {
         email: ''
       }
     })
-    this.props.openLoginModal();
   }
 
-  handleOpenLoginClick = () => {
+  resetLoginForm = () => {
     this.setState({
       loginFormData: {
         username: '',
         password: ''
       }
     })
+  }
+
+  handleOpenRegisterClick = () => {
+    this.resetRegisterForm();
+    this.props.openLoginModal();
+  }
+
+  handleCloseRegisterClick = () => {
+    this.resetRegisterForm();
+    this.props.closeRegModal()
+  }
+
+  handleOpenLoginClick = () => {
+    this.resetLoginForm();
     this.props.openRegModal();
+  }
+
+  handleCloseLoginClick = () => {
+    this.resetLoginForm();
+    this.props.closeLoginModal();
   }
 
 
@@ -101,10 +119,10 @@ class ModalClick extends React.Component {
         <button className="log-button" onClick={this.handleOpenRegisterClick}>Log In</button>
         <Modal
           isOpen={this.props.loginModalIsOpen}
-          onRequestClose={this.props.closeLoginModal}
+          onRequestClose={this.handleCloseLoginClick}
           ariaHideApp={false}
         >
-          <a onClick={this.props.closeLoginModal}>&times;</a>
+          <a onClick={this.handleCloseLoginClick}>&times;</a>
 
           <UserForm
             {...this.props}
@@ -117,10 +135,10 @@ class ModalClick extends React.Component {
         <button className="reg-button" onClick={this.handleOpenLoginClick}>Register</button>
         <Modal
           isOpen={this.props.regModalIsOpen}
-          onRequestClose={this.props.closeRegModal}
+          onRequestClose={this.handleCloseRegisterClick}
           ariaHideApp={false}
         >
-          <a onClick={this.props.closeRegModal}>&times;</a>
+          <a onClick={this.handleCloseRegisterClick}>&times;</a>
           <UserForm
             {...this.props}
             isLogin={false}
