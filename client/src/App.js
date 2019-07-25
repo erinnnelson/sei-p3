@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { verifyToken, createUser, loginUser, removeToken } from './services/api-helper';
-import UserForm from './components/UserForm';
 import TopicQuestions from './components/TopicQuestions';
 import NavBar from './components/NavBar';
 import Main from './components/Main';

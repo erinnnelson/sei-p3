@@ -82,7 +82,7 @@ export const fetchQuestion = async (topic, id) => {
 
 export const updateQuestion = async (topic, id, data) => {
   const res = await api.put(`/questions/${topic}/${id}`, data);
-  return res;
+  return res.data;
 };
 
 export const deleteQuestion = async (topic, id) => {
