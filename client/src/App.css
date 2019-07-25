@@ -29,7 +29,7 @@ footer{
   margin: 20px;
 }
 
-.card-topic-img{
+.card-topic-img {
   height: 70px;
   width: 70px;
   padding-top: 25px;
@@ -43,7 +43,6 @@ footer{
   width: 100vw;
 }
 
-
 .hero-img{
   height: 100vh;
   width: 100vw;
@@ -54,8 +53,11 @@ height: 100vh;
 width: 100vw;
 }
 
+
+/* LOGIN AND REG BUTTONS IN THE NAV BAR */
  .log-button, .reg-button {
   padding: 8px;
+  margin: 20px;
   width: 70px;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
@@ -63,20 +65,69 @@ width: 100vw;
   text-decoration: none;
   letter-spacing: 1px;
   transition: all 0.3s ease-out;
+  color: black;
 }
 
-/* .log-button:hover,
-.log-button:focus,
-.log-button:active {
-  background: #fff;
-  color: #000;
-  transition: all 0.5s ease-in;
-} 
 
-.reg-button:hover,
-.reg-button:focus,
-.reg-button:active {
-  background: #fff;
-  color: #000;
-  transition: all 0.5s ease-in;
-}  */
+/* MAIN SECTION */
+.login-modal, .register-modal {
+    position: fixed;
+    background: rgba(0, 0, 0, .6);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    color: goldenrod;
+}
+
+.modal-content {
+  width: 250px;
+  height: 250px;
+  background: rgb(247, 230, 137);
+  padding: 20px; 
+  border-radius: 200px;
+  
+}
+
+.x-close {
+  display: inline-block;
+  color: goldenrod;
+  padding-right: -200px;
+  font-weight: bold;
+  font-size: 22px;
+
+
+}
+
+.reg-form, .login-form, .modal-header {
+  display: flex;  
+  align-items: center;
+  justify-content: center; 
+  flex-direction: column;
+}
+
+
+/* INPUT FEILDS IN THE MODAL */
+.modal-inputs, .inside-modal-login {
+  margin-bottom: 7px;
+  background-color: rgb(250, 240, 186);
+  border-radius: 5px;
+}
+
+/* BUTTON IN MODAL */
+.inside-modal-login {
+background-color: rgba(254,79,108,.7);
+width: 50px;
+height: 50px;
+border-radius: 40px;
+outline: none;
+}
+
+button:focus { 
+  outline: none; 
+}

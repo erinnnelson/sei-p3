@@ -59,40 +59,44 @@ class ModalClick extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <button className="log-button" onClick={this.openLoginModal}>Log In</button>
-        <Modal
+        <Modal className="login-modal"
           isOpen={this.state.loginModalIsOpen}
           onRequestClose={this.closeLoginModal}
           ariaHideApp={false}
         >
-          <a onClick={this.closeLoginModal}>&times;</a>
-
-          <UserForm
-            {...this.props}
-            isLogin={true}
-            loginFormData={this.state.loginFormData}
-            handleLoginFormChange={this.handleLoginFormChange}
-          />
+          <div className="modal-content">
+            <a className="x-close" onClick={this.closeLoginModal}>&#10006;</a>
+            <UserForm
+              {...this.props}
+              isLogin={true}
+              loginFormData={this.state.loginFormData}
+              handleLoginFormChange={this.handleLoginFormChange}
+            />
+          </div>
         </Modal>
 
         <button className="reg-button" onClick={this.openRegModal}>Register</button>
-        <Modal
+        <Modal className="register-modal"
           isOpen={this.state.regModalIsOpen}
           onRequestClose={this.closeRegModal}
           ariaHideApp={false}
         >
-          <a onClick={this.closeRegModal}>&times;</a>
-          <UserForm
-            {...this.props}
-            isLogin={false}
-            registerFormData={this.state.registerFormData}
-            handleRegisterFormChange={this.handleRegisterFormChange}
-          />
+          <div className="modal-content">
+            <a className="x-close" onClick={this.closeRegModal}>&times;</a>
+            <UserForm
+              {...this.props}
+              isLogin={false}
+              registerFormData={this.state.registerFormData}
+              handleRegisterFormChange={this.handleRegisterFormChange}
+            />
+          </div>
         </Modal>
-      </div>
+      </>
     );
   }
 }
+
 
 export default ModalClick;
