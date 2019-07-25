@@ -59,6 +59,18 @@ class Question extends React.Component {
     })
   }
 
+  cancel = (e) => {
+    e.preventDefault();
+    this.setState({
+      isEdit: false,
+      formData: {
+        topic: '',
+        title: '',
+        question: ''
+      }
+    })
+  }
+
   handleSubmit = async (e) => {
     e.preventDefault();
     const topic = this.state.formData.topic;
@@ -81,6 +93,7 @@ class Question extends React.Component {
           isEdit={this.state.isEdit}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          cancel={this.cancel}
         />
         :
         <div>
