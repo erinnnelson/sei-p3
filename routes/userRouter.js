@@ -21,15 +21,22 @@ userRouter.route('/')
   .post(async (req, res, next) => {
     try {
       const { username, email, password } = req.body;
-      const pwdDigest = await bcrypt.hash(password, SALT);
-      const user = await User.create({
-        username: username,
-        password_digest: pwdDigest,
-        email: email
-      })
-      const { password_digest, ...userData } = user.dataValues;
-      const token = genToken(userData);
-      res.json({ token, user: userData });
+      const check = await User.count({ where: { username: username } })
+      debugger;
+      if (check === 0) {
+        const pwdDigest = await bcrypt.hash(password, SALT);
+        const user = await User.create({
+          username: username,
+          password_digest: pwdDigest,
+          email: email
+        })
+        const { password_digest, ...userData } = user.dataValues;
+        const token = genToken(userData);
+        res.json({ token, user: userData });
+      } else {
+        console.log('Username taken');
+        res.send('Username taken');
+      }
     }
     catch (e) {
       next(e);
@@ -47,6 +54,11 @@ userRouter.route('id/:id')
       next(e);
     }
   })
+
+userRouter.get('/username/:username', async (req, res) => {
+  const user = await User.findOne({ where: { username: req.params.username } });
+})
+
 
 userRouter.post('/login', async (req, res, next) => {
   try {

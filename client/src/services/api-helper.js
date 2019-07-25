@@ -44,6 +44,7 @@ export const verifyToken = async () => {
 
 export const createUser = async (data) => {
   const res = await api.post('/users', data);
+  debugger;
   storeToken(res.data.token);
   return res.data;
 };
