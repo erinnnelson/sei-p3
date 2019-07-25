@@ -34,7 +34,7 @@ class Question extends React.Component {
     const topic = this.props.topic;
     const questionId = this.props.question.id;
     await deleteQuestion(topic, questionId);
-    this.props.history.push(`/questions/${topic}`)
+    this.props.history.replace(`/questions/${topic}`)
   };
 
 
