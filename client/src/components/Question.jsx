@@ -100,8 +100,11 @@ class Question extends React.Component {
           <h1>{this.state.question.title}</h1>
           <p>{this.props.question.user.username}</p>
           <p>{this.state.question.question}</p>
-          <button onClick={this.edit}>edit</button>
-          <button onClick={this.handleDeleteClick}>delete</button>
+          {(this.props.user && (this.props.user.id === this.props.question.userId)) && (
+            <div>
+              <button onClick={this.edit}>edit</button>
+              <button onClick={this.handleDeleteClick}>delete</button>
+            </div>)}
         </div>
       )
     )

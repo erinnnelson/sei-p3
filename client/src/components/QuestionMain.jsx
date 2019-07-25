@@ -81,6 +81,7 @@ class QuestionMain extends React.Component {
             <Question
               question={this.state.question}
               topic={this.state.question.topic}
+              user={this.props.user}
             />
             {this.state.answerFormVisible
               ?
