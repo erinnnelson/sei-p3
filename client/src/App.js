@@ -137,6 +137,7 @@ class App extends React.Component {
             allUsers={this.state.users}
           />
         </header>
+
         <main id="main-section">
           <div className="main-section">
             {/* <div className="cover">
@@ -160,6 +161,9 @@ class App extends React.Component {
               id={tackle.match.params.id}
               openLoginModal={this.openLoginModal}
             />} />
+          <footer>
+            <img className="git-logo" src="https://cdn4.iconfinder.com/data/icons/43-social-media-line-icons/24/github-512.png" />
+          </footer>
         </main>
       </div>
     );
