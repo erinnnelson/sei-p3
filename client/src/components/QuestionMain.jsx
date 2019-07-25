@@ -82,6 +82,7 @@ class QuestionMain extends React.Component {
             <Question
               question={this.state.question}
               topic={this.state.question.topic}
+              user={this.props.user}
             />
             {this.state.answerFormVisible
               ?
@@ -99,6 +100,7 @@ class QuestionMain extends React.Component {
                 <Answer
                   answer={answer}
                   handleDeleteClick={this.handleDeleteAnswer}
+                  user={this.props.user}
                 />
               </div>
             ))}
