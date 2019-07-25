@@ -55,9 +55,10 @@ class QuestionMain extends React.Component {
       this.props.openLoginModal();
   }
 
-  cancelAnswer = () => {
+  cancelAnswer = (e) => {
+    e.preventDefault();
     this.setState({
-      formVisible: false,
+      answerFormVisible: false,
       formData: {
         answer: ''
       }
@@ -81,6 +82,7 @@ class QuestionMain extends React.Component {
             <Question
               question={this.state.question}
               topic={this.state.question.topic}
+              user={this.props.user}
             />
             {this.state.answerFormVisible
               ?
@@ -98,6 +100,7 @@ class QuestionMain extends React.Component {
                 <Answer
                   answer={answer}
                   handleDeleteClick={this.handleDeleteAnswer}
+                  user={this.props.user}
                 />
               </div>
             ))}
