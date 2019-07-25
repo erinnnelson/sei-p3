@@ -5,67 +5,67 @@ const UserForm = (props) => {
     <div>
       {props.isLogin ?
         <>
-          <h3>Login</h3>
-          <form onSubmit={(e) => {
+          <h3 className="modal-header">Log In</h3>
+          <form className="login-form" onSubmit={(e) => {
             e.preventDefault();
             props.handleLoginFormSubmit(props.loginFormData);
           }}>
-            <input
+            <input className="modal-inputs"
               onChange={props.handleLoginFormChange}
               name="username"
               type="text"
               value={props.loginFormData.username}
               placeholder="Username"
             />
-            <input
+            <input className="modal-inputs"
               onChange={props.handleLoginFormChange}
               name="password"
               type="password"
               value={props.loginFormData.password}
               placeholder="Password"
-            />
-            <input
+            /><br></br>
+            <input className="inside-modal-login"
               type="submit"
-              value="login"
+              value="tackle"
             />
           </form>
-          {props.userError ? <p>Login information incorrect</p> : null}
+          {props.userLoginError ? <p>Login information incorrect</p> : null}
         </>
         :
         <>
-          <h3>Register</h3>
-          <form onSubmit={(e) => {
+          <h3 className="modal-header">Register</h3>
+          <form className="reg-form" onSubmit={(e) => {
             e.preventDefault();
             props.handleRegisterFormSubmit(props.registerFormData);
           }}>
-            <input
+            <input className="modal-inputs"
               onChange={props.handleRegisterFormChange}
               name="username"
               type="text"
               value={props.registerFormData.username}
               placeholder="Username"
             />
-            <input
+            <input className="modal-inputs"
               onChange={props.handleRegisterFormChange}
               name="email"
               type="text"
               value={props.registerFormData.email}
               placeholder="Email"
             />
-            <input
+            <input className="modal-inputs"
               onChange={props.handleRegisterFormChange}
               name="password"
               type="password"
               value={props.registerFormData.password}
               placeholder="Password"
-            />
-            <input
+            /><br></br>
+            <input className="inside-modal-login"
               type="submit"
-              value="register"
+              value="tackle"
             />
           </form>
-          {(props.userError === 'reg-username') && <p>Username taken</p>}
-          {(props.userError === 'reg-email') && <p>Email is already registered</p>}
+          {props.userRegNameError && <p>Username taken</p>}
+          {props.userRegEmailError && <p>Email is already registered</p>}
         </>
       }
     </div>

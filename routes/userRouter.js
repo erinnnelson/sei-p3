@@ -32,6 +32,8 @@ userRouter.route('/')
       res.json({ token, user: userData });
     }
     catch (e) {
+      console.log(e.message);
+      res.json()
       next(e);
     }
   })
@@ -47,6 +49,11 @@ userRouter.route('id/:id')
       next(e);
     }
   })
+
+userRouter.get('/username/:username', async (req, res) => {
+  const user = await User.findOne({ where: { username: req.params.username } });
+})
+
 
 userRouter.post('/login', async (req, res, next) => {
   try {

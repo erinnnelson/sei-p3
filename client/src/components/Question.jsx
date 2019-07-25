@@ -34,7 +34,7 @@ class Question extends React.Component {
     const topic = this.props.topic;
     const questionId = this.props.question.id;
     await deleteQuestion(topic, questionId);
-    this.props.history.push(`/questions/${topic}`)
+    this.props.history.replace(`/questions/${topic}`)
   };
 
 
@@ -84,6 +84,7 @@ class Question extends React.Component {
   }
 
   render() {
+    const date = new Date(this.props.question.createdAt)
     return (
       this.state.question &&
       (this.state.isEdit
@@ -100,8 +101,13 @@ class Question extends React.Component {
           <h2 className="question-title">{this.state.question.title}</h2>
           <p className="question-title-username"><small>{this.props.question.user.username}</small></p>
           <p>{this.state.question.question}</p>
+        <p>{`${date}`}</p>
+          {(this.props.user && (this.props.user.id === this.props.question.userId)) && (
+         <div>  
           <button id="button-id" onClick={this.edit}>Edit</button>
           <button id="button-id" onClick={this.handleDeleteClick}>Delete</button>
+         </div>
+
         </div>
       )
     )
