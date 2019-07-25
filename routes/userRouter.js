@@ -33,7 +33,6 @@ userRouter.route('/')
     }
     catch (e) {
       console.log(e.message);
-      res.json()
       next(e);
     }
   })
