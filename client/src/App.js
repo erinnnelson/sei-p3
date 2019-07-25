@@ -81,21 +81,14 @@ class App extends React.Component {
             handleLoginFormSubmit={this.handleLoginFormSubmit}
             handleRegisterFormSubmit={this.handleRegisterFormSubmit}
             user={this.state.user}
-            handleLogOut={this.handleLogOut}
-            loginModalIsOpen={this.state.loginModalIsOpen}
-            regModalIsOpen={this.state.regModalIsOpen}
-            openLoginModal={this.openLoginModal}
-            openRegModal={this.openRegModal}
-            closeLoginModal={this.closeLoginModal}
-            closeRegModal={this.closeRegModal}
-          />
-          <h1>Tackle;</h1>
+            handleLogOut={this.handleLogOut} />
         </header>
-        <main>
+        
+      <main>
 
           <div className="main-section">
-            <div className="hero-img">
-              <img className="cover-img" src="https://images.unsplash.com/photo-1518107616985-bd48230d3b20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt="hero-img" />
+            <div className="cover">
+              <img className="hero-img" src="/img/hero-img.jpg" alt="hero-img"></img>
             </div>
           </div>
           <Route exact path='/' component={Main} />

@@ -4,9 +4,8 @@ import ModalClick from './ModalClick';
 export default function NavBar(props) {
   return (
     <div className="navbar">
-      <h5 className="logo">Tackle;</h5>
+      <h5 className="logo">tackle;</h5>
       <nav id="side-links">
-        <p>DropDown Topics</p>
         {props.user ?
           (<div>
             <p>Hello {props.user.username}</p>
@@ -17,7 +16,6 @@ export default function NavBar(props) {
           />
         }
       </nav>
-
     </div>
   )
 }

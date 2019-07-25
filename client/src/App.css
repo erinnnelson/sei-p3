@@ -1,82 +1,43 @@
-.App {
-  text-align: center;
+.App{
+  margin: auto 0;
+}
+.App-header{
+  margin: auto 0;
 }
 .navbar{
-  background-color:lightblue;
-  margin-top: 0px;
-  padding-top: 20px;
+  background-color: aquamarine;
 }
 
-footer{
-  background-color: aqua;
+.logo{
+  font-family: 'Quicksand', sans-serif;
 }
 
-.main-app{
-  background-color: pink;
-  height: 100vh;
-  width: 100vw;
-}
-/* TOPIC SECTION  */
-#topic-section{
-  background-color:lightcyan;
-}
-
-.topic-card{
-  background-color: blue;
-  max-height: 150px;
-  max-width: 150px;
-  border: solid 2px black;
-  margin: 20px;
-}
-
-.card-topic-img{
-  height: 70px;
-  width: 70px;
-  padding-top: 25px;
-}
-
-/* MAIN SECTION */
 .main-section{
-  background-color:purple;
-  color:white;
   height: 100vh;
-  width: 100vw;
 }
-
-
 .hero-img{
   height: 100vh;
   width: 100vw;
+  object-fit: cover;
 }
 
-.cover-img{ 
-height: 100vh;
-width: 100vw;
+
+/* *** TOPIC SECTION * TOPIC SECTION * TOPIC SECTION * TOPIC SECTION * TOPIC SECTION *** */
+#topic-section {
+  background-color: blueviolet;
 }
 
- .log-button, .reg-button {
-  padding: 8px;
-  width: 70px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
-  text-align: center;
-  text-decoration: none;
-  letter-spacing: 1px;
-  transition: all 0.3s ease-out;
+.topic-card {
+width: 20vw;
+height: 60vh;
+margin: 15px;
+display: flexbox;
+background-color: white;
+border-radius: 5px;
+grid-column-gap: 50px;
 }
 
-/* .log-button:hover,
-.log-button:focus,
-.log-button:active {
-  background: #fff;
-  color: #000;
-  transition: all 0.5s ease-in;
-} 
+.card-topic-img {
+  height: 15vh;
+}
 
-.reg-button:hover,
-.reg-button:focus,
-.reg-button:active {
-  background: #fff;
-  color: #000;
-  transition: all 0.5s ease-in;
-}  */
