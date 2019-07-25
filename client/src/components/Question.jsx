@@ -96,12 +96,12 @@ class Question extends React.Component {
           cancel={this.cancel}
         />
         :
-        <div>
-          <h1>{this.state.question.title}</h1>
-          <p>{this.props.question.user.username}</p>
+        <div className="question-title-card">
+          <h2 className="question-title">{this.state.question.title}</h2>
+          <p className="question-title-username"><small>{this.props.question.user.username}</small></p>
           <p>{this.state.question.question}</p>
-          <button onClick={this.edit}>edit</button>
-          <button onClick={this.handleDeleteClick}>delete</button>
+          <button id="button-id" onClick={this.edit}>Edit</button>
+          <button id="button-id" onClick={this.handleDeleteClick}>Delete</button>
         </div>
       )
     )

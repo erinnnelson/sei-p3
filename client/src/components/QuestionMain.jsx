@@ -75,9 +75,9 @@ class QuestionMain extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="testing-red-box">
         {this.state.question &&
-          (<div>
+          (<div className="testing-1">
             <Question
               question={this.state.question}
               topic={this.state.question.topic}
