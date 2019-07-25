@@ -8,13 +8,20 @@ class Question extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      question: null,
       formData: {
-        topic: this.props.topic,
-        title: this.props.question.title,
-        question: this.props.question.question
+        topic: '',
+        title: '',
+        question: ''
       },
       isEdit: false
     }
+  }
+
+  componentDidMount() {
+    this.setState({
+      question: this.props.question,
+    })
   }
 
   handleUpdateClick = () => {
@@ -41,19 +48,44 @@ class Question extends React.Component {
     }));
   };
 
+  edit = () => {
+    this.setState({
+      isEdit: true,
+      formData: {
+        topic: this.props.topic,
+        title: this.props.question.title,
+        question: this.props.question.question
+      }
+    })
+  }
+
+  cancel = (e) => {
+    e.preventDefault();
+    this.setState({
+      isEdit: false,
+      formData: {
+        topic: '',
+        title: '',
+        question: ''
+      }
+    })
+  }
+
   handleSubmit = async (e) => {
     e.preventDefault();
     const topic = this.state.formData.topic;
     const id = this.props.question.id;
     const question = this.state.formData;
-    const res = await updateQuestion(topic, id, question);
+    const updatedQuestion = await updateQuestion(topic, id, question);
     this.setState({
       isEdit: false,
+      question: updatedQuestion,
     })
   }
 
   render() {
     return (
+      this.state.question &&
       (this.state.isEdit
         ?
         <QuestionForm
@@ -61,13 +93,14 @@ class Question extends React.Component {
           isEdit={this.state.isEdit}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          cancel={this.cancel}
         />
         :
         <div>
-          <h1>{this.state.formData.title}</h1>
+          <h1>{this.state.question.title}</h1>
           <p>{this.props.question.user.username}</p>
-          <p>{this.state.formData.question}</p>
-          <button onClick={this.handleUpdateClick}>edit</button>
+          <p>{this.state.question.question}</p>
+          <button onClick={this.edit}>edit</button>
           <button onClick={this.handleDeleteClick}>delete</button>
         </div>
       )

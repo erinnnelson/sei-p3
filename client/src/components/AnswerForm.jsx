@@ -13,7 +13,7 @@ const AnswerForm = (props) => {
           onChange={props.handleChange}
         />
         <input type="submit" value="submit" />
-        
+        <button onClick={props.cancel}>cancel</button>
       </form>
     </div>
   )
