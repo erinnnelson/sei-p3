@@ -73,7 +73,8 @@ class TopicQuestions extends React.Component {
   render() {
     return (
       <div>
-        <h2>{this.props.topic}</h2>
+        <h2 className="topic-title">{this.props.topic}</h2>
+        <p className="topic-subtitle">questions</p>
         {this.state.questionFormVisible
           ?
           <QuestionForm
@@ -90,11 +91,9 @@ class TopicQuestions extends React.Component {
           <Link
             key={question.id}
             to={`/questions/${this.props.topic}/${question.id}`}>
-            <div >
-              <p>{question.title}</p>
-              <p>{question.question}</p>
-              <p>{question.user.username}</p>
-              <hr />
+            <div className="question-title-card">
+              <p className="question-title">{question.title}</p>
+              <p className="question-title-username">submitted by {question.user.username}</p>
             </div>
           </Link>
         ))}
