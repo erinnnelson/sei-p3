@@ -90,8 +90,8 @@ class Answer extends React.Component {
           <p>{`${date}`}</p>
           {(this.props.user && (this.props.user.id === this.props.answer.userId)) && (
             <div>
-              <button onClick={this.edit}>edit</button>
-              <button onClick={() => this.props.handleDeleteClick(this.props.topic, this.props.questionId, this.props.answer.id)}>delete</button>
+              <button id="button-id" onClick={this.edit}>edit</button>
+              <button id="button-id" onClick={() => this.props.handleDeleteClick(this.props.topic, this.props.questionId, this.props.answer.id)}>delete</button>
             </div>
           )}
 

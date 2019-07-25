@@ -7,12 +7,20 @@
   color: rgb(59 59 59);
 }
 
+a {
+  text-decoration: none;
+}
+
 .App-header{
   margin: auto 0;
 }
-
 .navbar{
-  background-color: gray;
+  height: 10vh;
+  padding-left: 5vw;
+  background-color: gold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* TOPIC SECTION */
@@ -41,14 +49,20 @@
   grid-column-gap: 50px;
   }
 
-.logo {
- font-family: 'Quicksand', sans-serif;
+a {
+text-decoration: none;
 }
 
-/* .main-section{
-  height: 100vh;
-} */
+.logo {
+ font-family: 'Quicksand', sans-serif;
+ color: white;
+ font-size: 2em;
+}
 
+.main-section{
+height: 30vh;
+background-color: beige;
+}
 
 #main-section{
 background-color: rgb(255, 255, 255);
@@ -67,6 +81,10 @@ height: 80vh;
   letter-spacing: 1px;
   transition: all 0.3s ease-out;
   color: black;
+}
+
+.log-button:hover, .reg-button:hover {
+  cursor: pointer;
 }
 
 /* MAIN SECTION */
@@ -131,14 +149,23 @@ button:focus {
 
 
 /* *** QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION */
-.question-title-card{
+.topic-title {
+  font-size: 4em;
+  margin-bottom: 0;
+}
+
+.topic-subtitle {
+  margin-top: 0;
+}
+
+.question-title-card {
   background-color: rgb(235 244 250);
   border-radius: 5px;
   width: 50vw;
-  margin: 10px;
+  margin: 10px auto;
   padding: 15px;
-
 }
+
 .question-title {
   /* color: rgb(74 74 74); */
   color: rgb(251 89 113);
@@ -147,6 +174,11 @@ button:focus {
 
 .question-title-username{
 margin-top: -20px;
+}
+.question-title-date{
+  font-size: 8px;
+  font-style: italic;
+  margin-top: -20px;
 }
 
 /* GENERAL STYLES ACROSS APP */
@@ -180,16 +212,12 @@ margin-top: -20px;
 #button-id {
   background-color: rgb(58 59 113);
   color: white;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 5px;
   }
 
-.testing-red-box {
-  align-content: center;
-}
-.testing-1{
+
+.question-area{
 align-content: center;
+padding: 25px;
 }
 
 .answerform-form{
@@ -211,18 +239,6 @@ align-content: center;
   resize: none;
   padding-bottom: 10px;
 }
-  
-  /* footer {
-  text-align: center;
-  /* background-color: rgb(228, 207, 154, .5); */
-  /* height: 40px;
-} */
-
-/*.git-logo {
-  height: 26px;
-  opacity: .2;
-  margin: 0 auto;
-} */
 
 @media only screen and (max-width: 600px) {
   .card-topic-img {
