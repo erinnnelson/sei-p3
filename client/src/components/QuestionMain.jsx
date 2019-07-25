@@ -98,6 +98,7 @@ class QuestionMain extends React.Component {
                 <Answer
                   answer={answer}
                   handleDeleteClick={this.handleDeleteAnswer}
+                  user={this.props.user}
                 />
               </div>
             ))}

@@ -86,12 +86,12 @@ class Answer extends React.Component {
         <div>
           <p>{this.props.answer.user.username}</p>
           <p>{this.state.answer.answer}</p>
-          {/* {(this.props.user.id === this.props.answer.user_id) && ( */}
-          <div>
-            <button onClick={this.edit}>edit</button>
-            <button onClick={() => this.props.handleDeleteClick(this.props.topic, this.props.questionId, this.props.answer.id)}>delete</button>
-          </div>
-
+          {(this.props.user && (this.props.user.id === this.props.answer.userId)) && (
+            <div>
+              <button onClick={this.edit}>edit</button>
+              <button onClick={() => this.props.handleDeleteClick(this.props.topic, this.props.questionId, this.props.answer.id)}>delete</button>
+            </div>
+          )}
 
         </div>
       )
