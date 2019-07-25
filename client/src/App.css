@@ -5,7 +5,6 @@
   margin-top: 0;
   font-family: 'Open Sans', sans-serif;
   color: rgb(59 59 59);
-
 }
 
 .App-header{
@@ -26,8 +25,8 @@
 }
 
 .card-topic-img {
-  height: 70vh;
-  width: 100px;
+  height: 15vh;
+  width: 15vh;
   padding-top: 25px;
 }
 
@@ -41,24 +40,15 @@
   border-radius: 5px;
   grid-column-gap: 50px;
   }
-  
-.card-topic-img {
- height: 15vh;
-}
 
 .logo {
  font-family: 'Quicksand', sans-serif;
 }
 
-.main-section{
+/* .main-section{
   height: 100vh;
-}
+} */
 
-.hero-img{
-  height: 100vh;
-  width: 100vw;
-  object-fit: cover;
-}
 
 #main-section{
 background-color: rgb(255, 255, 255);
@@ -139,21 +129,6 @@ button:focus {
   outline: none; 
 }
 
-.topic-card {
-max-width: 80vw;
-/* height: 50vh; */
-margin: 15px;
-display: flexbox;
-background-color: white;
-border-radius: 5px;
-grid-column-gap: 50px;
-padding: 15px;
-margin: 15px;
-}
-
-.card-topic-img {
-  height: 15vh;
-}
 
 /* *** QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION */
 .question-title-card{
@@ -237,14 +212,65 @@ align-content: center;
   padding-bottom: 10px;
 }
   
-  footer {
+  /* footer {
   text-align: center;
-  background-color: rgb(228, 207, 154, .5);
-  height: 70px;
+  /* background-color: rgb(228, 207, 154, .5); */
+  /* height: 40px;
+} */
+
+/*.git-logo {
+  height: 26px;
+  opacity: .2;
+  margin: 0 auto;
+} */
+
+@media only screen and (max-width: 600px) {
+  .card-topic-img {
+    height: 5vh;
+    width: 5vh;
+    padding-top: 1px;
+  }
+  
+  #topic-section {
+    display: grid;
+    grid-template-rows: 130px 130px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px 20px;
+    padding: 10px
+  }
+  
+}
+@media only screen and (max-width: 800px) {
+  
+.card-topic-img {
+height: 15vh;
+width: 15vh;
+padding-top: 25px;
 }
 
-.git-logo {
-  height: 30px;
-  opacity: .5;
-  margin: 0 auto;
+#topic-section {
+display: grid;
+grid-template-rows: 120px 120px 120px;
+grid-template-columns: 1fr 1fr;
+grid-gap: 30px 20px;
+padding: 80px auto;
+margin-left: 70px;
 }
+}
+@media only screen and (max-width: 500px) {
+  
+  .card-topic-img {
+  height: 9vh;
+  width: 9vh;
+  padding-top: 1px;
+  }
+  
+  #topic-section {
+  display: grid;
+  grid-template-rows: 70px 70px 70px;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px 20px;
+  padding: 40px;
+  margin-left: 0px;
+  }
+  }

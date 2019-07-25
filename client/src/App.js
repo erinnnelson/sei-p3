@@ -161,9 +161,10 @@ class App extends React.Component {
               id={tackle.match.params.id}
               openLoginModal={this.openLoginModal}
             />} />
-          <footer>
+          {/* <footer>
             <img className="git-logo" src="https://cdn4.iconfinder.com/data/icons/43-social-media-line-icons/24/github-512.png" />
-          </footer>
+            <i class="fab fa-github"></i>
+          </footer> */}
         </main>
       </div>
     );
