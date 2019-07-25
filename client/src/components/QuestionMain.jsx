@@ -55,9 +55,10 @@ class QuestionMain extends React.Component {
       this.props.openLoginModal();
   }
 
-  cancelAnswer = () => {
+  cancelAnswer = (e) => {
+    e.preventDefault();
     this.setState({
-      formVisible: false,
+      answerFormVisible: false,
       formData: {
         answer: ''
       }
