@@ -6,6 +6,7 @@ import NavBar from './components/NavBar';
 import Main from './components/Main';
 import { Route } from 'react-router-dom';
 import QuestionMain from './components/QuestionMain';
+import keyboard from './img/keyboard.jpg'
 
 class App extends React.Component {
   constructor() {
@@ -140,9 +141,9 @@ class App extends React.Component {
 
         <main id="main-section">
           <div className="main-section">
-            {/* <div className="cover">
-              <img className="hero-img" src="https://t3.ftcdn.net/jpg/02/18/02/54/240_F_218025408_vAqShwhdxe2wU9WF9YjEYg62sbCQEGMz.jpg" alt="hero-img"></img>
-            </div> */}
+            <div className="cover">
+              <img className="hero-img" src={keyboard} alt="hero-img"></img>
+            </div>
           </div>
           <Route exact path='/' component={Main} />
           <Route

@@ -35,6 +35,17 @@ a {
   font-weight: bold;
 }
 
+.cover {
+  height: 30vh;
+}
+
+.hero-img {
+  width: 100vw;
+  height: 30vh;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
 /* TOPIC SECTION */
 #topic-section {
   display: grid;
