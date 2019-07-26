@@ -99,7 +99,7 @@ class Question extends React.Component {
         :
         <div className="question-title-card">
           <h2 className="question-title">{this.state.question.title}</h2>
-          <p className="question-title-username"><small>{this.props.question.user.username}</small></p>
+          <p className="question-title-username"><b><small>{this.props.question.user.username}</small></b></p>
           <p className="question-title-date">{`${date}`}</p>
           <p>{this.state.question.question}</p>
           {(this.props.user && (this.props.user.id === this.props.question.userId)) && (

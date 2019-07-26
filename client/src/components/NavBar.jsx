@@ -10,9 +10,9 @@ export default function NavBar(props) {
       </Link>
       <nav id="side-links">
         {props.user ?
-          (<div>
-            <p>Hello {props.user.username}</p>
-            <button onClick={props.handleLogOut}>Logout</button>
+          (<div className="navbar-greeting">
+            <p><span className="hello">Hello</span> {props.user.username}</p>
+            <button className="log-button" onClick={props.handleLogOut}>Logout</button>
           </div>) :
           <ModalClick
             {...props}

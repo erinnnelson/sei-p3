@@ -73,6 +73,7 @@ class TopicQuestions extends React.Component {
   render() {
     return (
       <div>
+        <div className={this.props.topic}></div>
         <h2 className="topic-title">{this.props.topic}</h2>
         <p className="topic-subtitle">questions</p>
         {this.state.questionFormVisible

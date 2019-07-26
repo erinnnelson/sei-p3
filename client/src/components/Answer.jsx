@@ -85,9 +85,9 @@ class Answer extends React.Component {
         />
         :
         <div className="answer-title-card">
-          <p>{this.props.answer.user.username}</p>
+          <p><b>{this.props.answer.user.username}</b></p>
+          <p className="question-title-date">{`${date}`}</p>
           <p>{this.state.answer.answer}</p>
-          <p>{`${date}`}</p>
           {(this.props.user && (this.props.user.id === this.props.answer.userId)) && (
             <div>
               <button id="button-id" onClick={this.edit}>edit</button>
