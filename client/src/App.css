@@ -225,6 +225,10 @@ margin-top: -20px;
   flex-direction: column;
 }
 
+.answerform-form {
+  background: #e1cdd7;
+}
+
 .main-question-form-dropdown{
   /* padding: 0px 34px 0px 15px; */
   color: rgb(261 89 113);
