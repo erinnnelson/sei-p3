@@ -13,8 +13,8 @@ const AnswerForm = (props) => {
           value={props.formData.answer}
           onChange={props.handleChange}
         ></textarea>
-        <input type="submit" value="submit" />
-        <button onClick={props.cancel}>cancel</button>
+        <input id="button-id" type="submit" value="submit" />
+        <button id="button-id" onClick={props.cancel}>cancel</button>
       </form>
     </div>
   )
