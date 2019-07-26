@@ -221,13 +221,17 @@ margin-top: -20px;
 }
 
 /* GENERAL STYLES ACROSS APP */
-.main-question-form{
+.main-question-form, .answerform-form{
   background-color: rgb(235 244 250);
   border-radius: 5px;
   display: inline;
   padding: 15px;
   display: flex;
   flex-direction: column;
+}
+
+.answerform-form {
+  background: #e1cdd7;
 }
 
 .main-question-form-dropdown{
