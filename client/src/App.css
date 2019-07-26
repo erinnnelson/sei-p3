@@ -17,10 +17,22 @@ a {
 .navbar{
   height: 10vh;
   padding-left: 5vw;
+  padding-right: 5vw;
   background-color: gold;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.navbar-greeting {
+  width: 20vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Roboto', monospace;
+  font-size: 1.5em;
+  color: tomato;
+  font-weight: bold;
 }
 
 /* TOPIC SECTION */
@@ -160,7 +172,7 @@ button:focus {
 
 /* *** QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION */
 .question-title-card, .answer-title-card, .answerform-form, .main-question-form{
-  background-color: rgb(235 244 250);
+  background-color: rgb(236, 235, 250);
   border-radius: 5px;
   width: 50vw;
   margin: 10px auto;
@@ -197,6 +209,8 @@ margin-top: -20px;
   border-radius: 5px;
   display: inline;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-question-form-dropdown{
@@ -208,14 +222,31 @@ margin-top: -20px;
   width: 160px;
 }
 
+
 #main-question-form-input{
   color: rgb(261 89 113);
   background-color: white;
   border: 0px solid;
   border-radius: 5px;
   height: 20px;
-  width: 160px;
+  width: 90%;
   margin: 5px;
+}
+
+.question-form-title {
+  width: 200px;;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.form-button {
+  margin-top: 15px;
+  margin-right: 10px;
+  width: 20%;
 }
 
 /* BUTTONS */

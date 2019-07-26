@@ -106,7 +106,7 @@ class ModalClick extends React.Component {
           ariaHideApp={false}
         >
           <div className="modal-content">
-            <a className="x-close" onClick={this.handleCloseRegisterClick}>&times;</a>
+            <a className="x-close" onClick={this.handleCloseRegisterClick}>&#10006;</a>
             <UserForm
               {...this.props}
               isLogin={false}
