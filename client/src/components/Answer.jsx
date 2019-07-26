@@ -94,7 +94,6 @@ class Answer extends React.Component {
               <button id="button-id" onClick={() => this.props.handleDeleteClick(this.props.topic, this.props.questionId, this.props.answer.id)}>delete</button>
             </div>
           )}
-
         </div>
       )
     )

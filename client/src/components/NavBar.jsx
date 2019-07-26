@@ -6,7 +6,7 @@ export default function NavBar(props) {
   return (
     <div className="navbar">
       <Link to='/'>
-        <h5 className="logo">tackle;</h5>
+        <h5 className="logo">tackle<span class="blinking">;</span></h5>
       </Link>
       <nav id="side-links">
         {props.user ?
