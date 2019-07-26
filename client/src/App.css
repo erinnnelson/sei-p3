@@ -175,6 +175,7 @@ button:focus {
 .topic-title {
   font-size: 4em;
   margin-bottom: 0;
+  font-family: 'Press Start 2P', sans-serif;
 }
 
 .topic-subtitle {
