@@ -13,10 +13,10 @@ const QuestionForm = (props) => {
           <option name="html" value="html">HTML</option>
           <option name="css" value="css">CSS</option>
           <option name="react" value="react">React</option>
-          <option name="sql" value="sql">SQL</option>
           <option name="express" value="express">Express</option>
+          <option name="ruby" value="ruby">Ruby</option>
           <option name="node" value="node">Node</option>
-          <option name="other" value="other">Other</option>
+          <option name="sql" value="sql">SQL</option>
         </select>
         <input id="main-question-form-input"
           type="text"
