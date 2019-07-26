@@ -183,6 +183,8 @@ button:focus {
 }
 
 /* *** QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION * QUESTION-TOPIC SECTION */
+
+
 .question-title-card, .answer-title-card, .answerform-form, .main-question-form{
   background-color: rgb(236, 235, 250);
   border-radius: 5px;
@@ -271,6 +273,15 @@ margin-top: -20px;
 .question-area{
 align-content: center;
 padding: 25px;
+}
+
+#main-input-tackle-an-answer{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-self: center;
+  background-color: white;
+  border: 0px solid;
 }
 
 #main-input-tackle-a-question{
